@@ -1,0 +1,307 @@
+
+/* ================= ROOT VARIABLES ================= */
+:root {
+ 
+  --line-height-base: 2;
+
+  /* ===== Colors ===== */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-dark: #111;
+  --color-gray-light: #d1d5db;
+  --color-bg-light: #f9f9f9;
+  --color-shadow: rgba(0, 0, 0, 0.12);
+  --color-shadow-strong: rgba(0, 0, 0, 0.25);
+
+  /* ===== Brand ===== */
+  --color-brand-green: #084422;
+  --color-btn-hover: #1F2937;
+
+  /* ===== Toast ===== */
+  --toast-bg: #1f1f1f;
+  --toast-success: #2ecc71;
+  --toast-error: #e74c3c;
+
+  /* ===== Buttons ===== */
+  --button-font-size: 1.25rem;
+  --button-text-color: #ffffff;
+  --button-border: 2px solid var(--color-black);
+
+  /* ===== Radius ===== */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+
+  /* ===== Image Sizes ===== */
+  --thumb-size: 50px;
+  --main-image-height: 380px;
+  --main-image-height-mobile: 300px;
+}
+
+/* ================= RESET ================= */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+td {
+  line-height: var(--line-height-base);
+  text-align: justify;
+}
+
+body {
+  background-color: var(--color-white);
+  font-family: var(--font-primary);
+}
+
+h1,
+h2,
+h3,
+header span {
+  font-family: var(--font-heading);
+}
+
+/* ================= LEFT SIDE (STICKY) ================= */
+.sticky-left {
+  position: sticky;
+  top: 75px;
+  align-self: flex-start;
+  height: fit-content;
+}
+
+/* ================= THUMBNAILS ================= */
+.product-details__thumbnail img {
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.product-details__thumbnail img.active {
+  box-shadow:
+    0 0 5px var(--color-brand-green),
+    0 0 5px var(--color-brand-green),
+    0 0 5px var(--color-brand-green);
+}
+
+/* ================= CART & BUY BUTTONS ================= */
+.product-details__cartBtn,
+.product-details__buyBtn {
+  font-size: var(--button-font-size);
+  width: 45%;
+  border: var(--button-border);
+  font-weight: 700;
+}
+
+/* Hover states */
+.product-details__buyBtn:hover {
+  background-color: var(--color-brand-green);
+  color: var(--button-text-color);
+}
+
+.product-details__cartBtn:hover {
+  background-color: var(--color-btn-hover);
+  color: var(--button-text-color);
+}
+
+/* ================= SIZE BUTTONS ================= */
+.product-details__sizebtn {
+  border: 1px solid var(--color-gray-light);
+  background-color: var(--color-white);
+  color: var(--color-dark);
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  padding: 6px 14px;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.2s ease;
+}
+
+.product-details__sizebtn:hover {
+  border-color: var(--color-black);
+  box-shadow: 0 4px 12px var(--color-shadow);
+  transform: translateY(-2px);
+}
+
+.product-details__sizebtn.active {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
+  box-shadow: 0 6px 18px var(--color-shadow-strong);
+  transform: scale(1.05);
+}
+
+/* ================= SELLER INFO ================= */
+.sellerInfo td:nth-child(1) {
+  width: 150px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+/* ================= MAIN IMAGE ================= */
+#mainImage {
+  width: 100%;
+  height: var(--main-image-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--color-bg-light);
+}
+
+.product-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .sticky-left {
+    position: static;
+    top: auto;
+  }
+
+  html {
+    font-size: 14px;
+  }
+
+  #mainImage {
+    height: var(--main-image-height-mobile);
+  }
+}
+
+/* ================= TOAST ================= */
+#toastContainer {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+}
+
+.toast {
+  min-width: 360px;
+  background: var(--toast-bg);
+  color: var(--color-white);
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 12px var(--color-shadow-strong);
+  animation: slideDown 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
+}
+
+.toast .icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--color-white);
+  flex-shrink: 0;
+}
+
+.toast.success .icon {
+  background: var(--toast-success);
+}
+
+.toast.error .icon {
+  background: var(--toast-error);
+}
+
+.toast .message {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+
+/* ================= ANIMATIONS ================= */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+/* ================= SELLER INFO – MOBILE ONLY STACK ================= */
+@media (max-width: 768px) {
+
+  /* Stack seller info rows */
+  .sellerInfo tr {
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  /* Stack label & value vertically */
+  .sellerInfo td {
+    display: block;
+    width: 100%;
+    padding: 0;
+  }
+
+  /* LABEL (Seller Name, Location, etc.) */
+  .sellerInfo td:nth-child(1) {
+    width: auto;              
+    margin-bottom: 4px;       
+    font-size: inherit;       
+    font-weight: inherit;     
+    color: inherit;           
+  }
+
+  /* VALUE (AyurRoots Organic, Salem, etc.) */
+  .sellerInfo td:nth-child(2) {
+    font-size: inherit;       /* keep same font size */
+    font-weight: inherit;
+    color: inherit;
+    line-height: 1.5;
+  }
+}
+/* ================= PRODUCT DETAIL WISHLIST ================= */
+
+.detail-wishlist {
+  cursor: pointer;
+  min-width: 70px;
+  line-height: 1;   
+  margin-bottom: 10px; 
+  color: #dc3545;
+}
+
+.detail-wishlist i {
+  color: #dc3545;
+  transition: transform 0.2s ease;
+}
+
+.detail-wishlist.active i {
+  color: #dc3545;
+}
+
+.wishlist-text {
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 2px;
+ 
+}
+
+

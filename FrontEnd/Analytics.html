@@ -1,0 +1,37 @@
+<section class="row g-3 my-3">
+
+    <div class="col-6 col-md-6">
+        <div class="card p-3 h-100 text-center mobile-fixed-card">
+            <p class="text-muted mb-1">Total Customers</p>
+            <span class="fs-3 fw-bold" id="totalCustomers">0</span>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-6 ">
+        <div class="card p-3 h-100 text-center mobile-fixed-card">
+            <p class="text-muted mb-1">Total Revenue</p>
+            <span class="fs-3 fw-bold" id="totalRevenue">₹ 000.00</span>
+        </div>
+    </div>
+
+</section>
+
+<section class="row g-3 my-3">
+
+    <!-- Sales Chart -->
+    <div class="col-12 col-md-8">
+        <div class="card p-3 h-100 text-center">
+            <p class="text-muted mb-2">Weekly Sales</p>
+            <canvas id="salesChart" height="220"></canvas>
+        </div>
+    </div>
+
+    <!-- Orders Chart -->
+    <div class="col-12 col-md-4">
+        <div class="card p-3 order-status-card text-center">
+            <p class="text-muted mb-2">Order Status</p>
+            <canvas id="orderChart" ></canvas>
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AyurRoots</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/template.css">
+    <script src="assets/js/template.js"></script>
+</head>
+
+<body >
+    <div data-template="#site-header"></div>
+
+    <!-- loader -->
+    <div class="dots-loader d-none" id="dots-loader">
+        <span></span><span></span><span></span>
+    </div>
+   <!-- toast container -->
+    <div id="toastContainer"></div>
+    <!-- Banner section -->
+<main>
+    <section class="banner" id="content">
+        <img src="assets/Images/Index/banner/banner-image-4.png" alt="Product offers" class="active">
+        <img src="assets/Images/Index/banner/banner-image-3.png" alt="Today's special project">
+
+        <div class="d-none" id="control">
+            <div id="banner__leftbtn"><i class="bi bi-caret-left"></i></div>
+            <div id="banner__rightbtn"><i class="bi bi-caret-right"></i></div>
+        </div>
+    </section>
+
+    <!-- Explore Category -->
+    <section class="Category my-5">
+        <div class="container">
+            <h2 class="section-heading mb-4 text-center">Find Your Blend</h2>
+            <div class="row g-3" Id="CategoryRow">Wait categories are Loading...</div>
+        </div>
+    </section>
+
+    <!-- Fan  Favorites Products -->
+    <section class="loved-products py-4">
+        <div class="container">
+            <h2 class="section-heading mb-5 text-center">Fan Favorites</h2>
+            <div class="row g-3" id="productRow">Wait data is loading</div>
+        </div>
+    </section>
+
+    <!-- New on shelf -->
+    <section class="new-products py-5">
+        <div class="container">
+            <h2 class="section-heading mb-5 text-center">New on the Shelf</h2>
+            <div class="row" id="newProductsRow">
+                Wait data is loading..
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews-->
+
+    <section class="review py-5">
+        <div class="container d-flex flex-column">
+            <h2 class="section-heading mb-5 text-center">What They’re Saying</h2>
+            <div class="row g-4">
+
+                <div class="col-12 col-md-6 col-lg-4 px-lg-4 px-4">
+                    <div class="review__card p-3 border border-dark rounded">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <img src="assets/Images/UnknownProfile.png" alt="Customer profileImage"
+                                    width="50px" height="50px" class="img-fluid review__card--img">
+
+                            </div>
+                            <div>
+                                <p class="fs-5 ms-3">Tharunkumar</p>
+                                <p class="ms-3">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning "></i>
+                                    <i class="bi bi-star text-warning "></i>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <p>This herbal product feels completely natural and gentle</p>
+                            <a href="#" class="text-dark">View Product</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 px-4">
+                    <div class="review__card p-3 border border-dark rounded">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <img src="assets/Images/UnknownProfile.png" alt="Customer profileImage"
+                                    width="50px" height="50px" class="img-fluid review__card--img">
+
+                            </div>
+                            <div>
+                                <p class="fs-5 ms-3">Priyanka</p>
+                                <p class="ms-3">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-half text-warning "></i>
+
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <p>Loved the freshness and purity! can really tell it’s made from high-quality ingredients</p>
+                            <a href="#" class="text-dark">View Product</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 px-4">
+                    <div class="review__card p-3 border border-dark rounded">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <img src="assets/Images/UnknownProfile.png" alt="customer product-image"
+                                    width="50px" height="50px" class="img-fluid review__card--img">
+
+                            </div>
+                            <div>
+                                <p class="fs-5 ms-3">Nandhini</p>
+                                <p class="ms-3">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning "></i>
+                                    <i class="bi bi-star-half text-warning "></i>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <p>A great alternative to chemical-based products. It’s effective, nature-inspired.</p>
+                            <a href="#" class="text-dark">View Product</a>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="text-center mt-5">
+                <a href="#" class="btn cart">See More</a>
+            </div>
+        </div>
+    </section>
+    <!-- Our story -->
+
+    <section class="about py-5" id="About">
+        <div class="container">
+
+            <div class="row g-4">
+
+                <div class="col-12 col-md-6 col-lg-6 d-flex flex-column align-items-center justify-content-center">
+                    <h2 class="section-heading mb-5">Behind the Brand</h2>
+                    <p > <span class="text-danger fw-bold">வேரில் தமிழ், பயனில் மகிழ்</span> என்ற
+                        தத்துவத்துடன் உருவான Salem Tamil Roots, தமிழரின் பாரம்பரிய மூலிகை அறிவையும், சித்த மருத்துவ
+                        மரபையும் இன்றைய வாழ்க்கைமுறைக்குத் தக்கவாறு கொண்டு வருகிறது. தமிழ் மண்ணில் பிறந்து வளர்ந்த தூய
+                        மூலிகைகள், இயற்கை விவசாயப் பொருட்கள் மற்றும் பாரம்பரிய தயாரிப்புகள் — அனைத்தும் இடைத்தரகர்
+                        இன்றி, நேரடியாக நம்பகமான உற்பத்தியாளர்களிடமிருந்து உங்களிடம் சேர்க்கப்படுகின்றன. இதன் மூலம்
+                        உழைப்பாளருக்கு நியாயமான வருமானமும், உங்களுக்கு தரமான, உண்மையான, பாதுகாப்பான இயற்கை நலமும்
+                        கிடைக்கிறது. தலைமுறைகளால் சோதிக்கப்பட்ட அறிவும், இன்றைய நேர்மையான வணிக அணுகுமுறையும் இணையும்
+                        இடமே Salem Tamil Roots — வேரில் தமிழ், பயனில் உண்மையான மகிழ்ச்சி.</p>
+
+                    <p class="mt-3">At <span class="text-danger fw-bold">Salem Tamil Roots</span>, we believe that true wellness
+                        begins with nature. Every product we create is carefully crafted from pure, handpicked herbs —
+                        blending ancient herbal wisdom with modern science to nurture your body, mind, and soul.</p>
+                    <p class="mt-3 justify-content">Our journey started with a simple vision: to bring the healing touch
+                        of nature into
+                        everyday life. From soothing oils to rejuvenating blends, each formula is made with honesty,
+                        care, and sustainability at heart.</p>
+                    <p class="mt-3">We work closely with local growers and use eco-conscious practices to ensure that
+                        every ingredient is fresh, ethical, and full of life. No harsh chemicals, no shortcuts — just
+                        the goodness of nature in its purest form.</p>
+                </div>
+
+
+                <div class="col-12 col-md-6 col-lg-6 d-flex flex-column align-items-center justify-content-center px-4 ">
+                    <div class="row">
+                        <div class="col-6 d-flex flex-column gap-4">
+                            <img src="assets/Images/Index/category/Baths & Soaks.png" alt="randm"
+                                class="img-fluid about__image1">
+                            <img src="assets/Images/Index/category/Body Health Care.png" alt="randm2"
+                                class="img-fluid about__image2">
+                        </div>
+                        <div class="col-6">
+                            <img src="assets/Images/Index/aboutImage.jpg" alt="randm3"
+                                class="img-fluid h-100 about__image3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        </section>
+
+        
+    </main>
+    <footer>
+         <div data-template="#site-footer"></div>
+    </footer>
+   
+    
+    <script src="assets/js/config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="assets/js/index.js"></script>
+    <script type="module" src="assets/js/callApi.js"></script>
+
+</body>
+
+</html>

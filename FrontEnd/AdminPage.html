@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Salem Tamil Roots | Admin Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/template.css">
+    <link rel="stylesheet" href="assets/css/AdminPage.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+
+<body>
+    <!-- loader -->
+    <div class="dots-loader d-none" id="dots-loader">
+        <span></span><span></span><span></span>
+    </div>
+    <!-- toast container -->
+    <div id="toastContainer"></div>
+    <div class="app-wrapper">
+
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <div class="brand p-3">
+                <h6 class="fs-2 text-center">Salem Tamil Roots</h6>
+            </div>
+
+            <nav>
+                <button class="nav-link active" data-page="dashboard">
+                    <i class="bi bi-house-door-fill"></i> Dashboard
+                </button>
+                <button class="nav-link" data-page="sellers" id="sell">
+                    <i class="bi bi-shop-window"></i> Seller
+                </button>
+                <button class="nav-link" data-page="payments" id="pay">
+                    <i class="bi bi-credit-card-2-back-fill"></i> Payment Check
+                </button>
+                <button class="nav-link" data-page="lookup" id="look">
+                    <i class="bi bi-clipboard-data-fill"></i> LookUp
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main -->
+        <main id="main">
+
+            <!-- Topbar -->
+            <header class="topbar">
+                <button class="btn d-md-none" id="sidebarToggle">
+                    <i class="bi bi-list fs-2"></i>
+                </button>
+                <div>
+
+                </div>
+                <div class="profile">
+                    <span>Welcome, <strong>Tharun</strong></span>
+                    <img src="assets/Images/UnknownProfile.png" alt="Admin">
+                </div>
+            </header>
+
+            <!-- Content -->
+            <section class="content">
+
+                <!-- DASHBOARD -->
+                <div class="page active" id="dashboard">
+                    <h4>Hello 🥷</h4>
+                    <div class="welcome-card container">
+                        <h5>Welcome to Salem Tamil Roots Admin Panel</h5>
+                        <p>Manage sellers, verify organic authenticity, and ensure smooth transactions.</p>
+                    </div>
+                </div>
+
+                <!-- SELLERS -->
+                <div class="page mt-3" id="sellers">
+                    <!-- Pending -->
+                    <h5 class="fw-bold mb-2 ">New Requests</h5>
+                    <div id="pendingSellers" class="mb-4"></div>
+
+                    <!-- Approved -->
+                    <h5 class="fw-bold mb-2">Approved Sellers</h5>
+                    <div id="approvedSellers" class="mb-4"></div>
+
+                    <!-- Suspended -->
+                    <h5 class="fw-bold mb-2">Suspended Sellers</h5>
+                    <div id="suspendedSellers" class="mb-4"></div>
+
+                    <!-- Rejected -->
+                    <h5 class="fw-bold mb-2">Rejected Sellers</h5>
+                    <div id="rejectedSellers" class="mb-4"></div>
+                </div>
+
+                <!-- PAYMENTS -->
+                <div class="page" id="payments">
+                    <div id="allPayment" class="mt-3">
+                        <h5 class="fw-bold mb-2 ">Payments</h5>
+                        <div class="table-card">
+                            <table class="table admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Customer Name</th>
+                                        <th>Amount</th>
+                                        <th>Payment Type</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="allTableBody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LOOKUP -->
+                <div class="page mt-3" id="lookup">
+                    <div class="admin-wrapper rounded">
+                        <div class="master-sidebar me-1 rounded">
+                            <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="fw-bold mb-0 fs-2">Lookup Types</h5>
+                                    <button class="btn btn-sm btn-primary" id="addTypeBtn"><i class="bi bi-plus"></i>
+                                        Add Type</button>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-white border-end-0"><i
+                                            class="bi bi-search"></i></span>
+                                    <input type="text" class="form-control border-start-0" id="typeSearch"
+                                        placeholder="Search Type or ID...">
+                                </div>
+                            </div>
+
+                            <div class="flex-grow-1 overflow-auto py-2" id="typeList">
+                                <!-- dynamic load -->
+                            </div>
+
+                        </div>
+
+                        <div class="main-content p-4 rounded">
+                            <div class="d-flex justify-content-between align-items-start mb-4">
+                                <h5 class="fw-bold mb-0 fs-2">Lookup Values</h5>
+                                <div class="d-flex gap-2">
+                                    <div class="input-group" style="width: 300px;">
+                                        <span class="input-group-text bg-white border-end-0"><i
+                                                class="bi bi-filter"></i></span>
+                                        <input type="text" class="form-control border-start-0" id="valueSearch"
+                                            placeholder="Filter Values or ID...">
+                                    </div>
+                                    <button class="btn btn-primary shadow-sm" id="addValueBtn"><i
+                                            class="bi bi-plus-lg me-2"></i>Add Value</button>
+                                </div>
+                            </div>
+                            <div class="d-flex gap-2 mb-2">
+                                <p class="fw-bold fs-5" id="activeTitle"></p>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <p class="id-badge mb-0" id="activeIDHeader"></p>
+                                </div>
+                            </div>
+                            <div class="glass-card">
+                                <table class="table table-hover align-middle mb-0" id="valueTable">
+                                    <thead>
+                                        <tr>
+                                            <th class="ps-4">Value ID</th>
+                                            <th>Display Name</th>
+                                            <th>Code</th>
+                                            <th>Sort Order</th>
+                                            <th class="text-center pe-4 actions-col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="valueBody">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+    </div>
+
+    </section>
+
+
+
+    <!-- Model popup for full seller info -->
+    <div class="modal fade" id="actionModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+
+                <!-- Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title text-success">
+                        Seller Details
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Body -->
+                <div class="modal-body">
+
+                    <!-- USER INFO -->
+                    <h6 class="fw-bold mb-2 text-muted">User Information</h6>
+                    <p><strong>Name:</strong> <span id="mUserName"></span></p>
+                    <p><strong>Email:</strong> <span id="mUserEmail"></span></p>
+                    <p><strong>Phone:</strong> <span id="mUserPhone"></span></p>
+
+                    <hr>
+
+                    <!-- BUSINESS INFO -->
+                    <h6 class="fw-bold mb-2 text-muted">Business Details</h6>
+                    <p><strong>Business Name:</strong> <span id="mBusinessName"></span></p>
+                    <p><strong>Entity Type:</strong> <span id="mEntityType"></span></p>
+                    <p><strong>GST:</strong> <span id="mGST"></span></p>
+                    <p><strong>Description:</strong> <span id="mBusinessDesc"></span></p>
+
+                    <hr>
+
+                    <!-- CONTACT INFO -->
+                    <h6 class="fw-bold mb-2 text-muted">Contact Person</h6>
+                    <p><strong>Name:</strong> <span id="mContactPerson"></span></p>
+                    <p><strong>Mobile:</strong> <span id="mContactMobile"></span></p>
+                    <p><strong>Email:</strong> <span id="mContactEmail"></span></p>
+
+                    <hr>
+
+                    <!-- ADDRESS -->
+                    <h6 class="fw-bold mb-2 text-muted">Address</h6>
+                    <p id="mAddress" class="mb-0"></p>
+
+                </div>
+
+                <!-- Footer -->
+                <div class="modal-footer">
+                    <button class="btn btn-success" id="approveSeller">
+                        <i class="bi bi-check"></i> Approve
+                    </button>
+                    <button class="btn btn-danger" id="rejectSeller">
+                        <i class="bi bi-x"></i> Reject
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Model for reject button -->
+    <div class="modal fade" id="rejectModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Reject Payment </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="rejectForm">
+                        <input type="hidden" id="rejectId">
+
+                        <div class="mb-3">
+                            <label class="form-label">Reason for rejection</label>
+                            <textarea class="form-control" id="rejectReason" rows="4" placeholder="Enter reason..."
+                                required></textarea>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button class="btn btn-danger" id="confirmReject">Reject</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Model for lookup -->
+    <div class="modal fade" id="typeModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content shadow border-0">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold fs-4" id="typeModalTitle"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Type Name<span
+                                                class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="typeNameInput">
+                        <div class="invalid-feedback">
+                            Type name is required
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Description<span
+                                                class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="descriptionInput">
+                        <div class="invalid-feedback">
+                            Type Description is required
+                        </div>
+                    </div>
+                    <input type="hidden" id="lookupTypeIdInput">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="typeSubmitBtn"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Delete lookup model -->
+    <div class="modal fade" id="deleteModal" tabindex="-1">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-body text-center p-4">
+                    <i class="bi bi-exclamation-triangle text-danger display-4 mb-3"></i>
+                    <h5 class="fw-bold">Delete Item?</h5>
+                    <p class="text-muted small">Are you sure you want to delete <b id="delName"></b>?</p>
+                    <input type="hidden" id="deleteId">
+                    <input type="hidden" id="typeId">
+                    <div class="d-grid gap-2 mt-4">
+                        <button class="btn btn-danger" id="deleteTypeBtn">Yes, Delete</button>
+                        <button class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add / Edit Lookup Value Modal -->
+<div class="modal fade" id="lookupValueModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow border-0">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="lookupValueModalTitle">
+          Add Lookup Value
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+
+        <!-- Lookup Type -->
+        <div class="mb-3">
+          <label class="form-label small fw-bold">Lookup Type<span
+                                                class="text-danger">*</span></label>
+          <select class="form-control form-select" id="lookupTypeSelect">
+            <option value="">-- Select Lookup Type --</option>
+            <!-- dynamically load types -->
+          </select>
+          <div class="invalid-feedback">
+            Lookup type is required
+          </div>
+        </div>
+
+        <!-- Display Value -->
+        <div class="mb-3">
+          <label class="form-label small fw-bold">Display Value<span
+                                                class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="displayValueInput">
+          <div class="invalid-feedback">
+            Display value is required
+          </div>
+        </div>
+
+        <!-- Lookup Code -->
+        <div class="mb-3">
+          <label class="form-label small fw-bold">Lookup Code<span
+                                                class="text-danger">*</span></label>
+          <input type="text" class="form-control text-uppercase" id="lookupCodeInput">
+          <div class="invalid-feedback">
+            Lookup code is required
+          </div>
+        </div>
+
+        <!-- Sort Order -->
+        <div class="mb-3">
+          <label class="form-label small fw-bold">Sort Order</label>
+          <input type="number" class="form-control" id="sortOrderInput" min="0">
+         
+        </div>
+
+        <input type="hidden" id="lookupValueIdInput">
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">
+          Cancel
+        </button>
+        <button type="button" class="btn btn-primary" id="lookupValueSubmitBtn">
+          Add
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+    </main>
+    </div>
+
+    <script src="assets/js/config.js"></script>
+    <script type="module" src="assets/js/callApi.js"></script>
+    <script type="module" src="assets/js/AdminPage.js"></script>
+    <script type="module" src="assets/js/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

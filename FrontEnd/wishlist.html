@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist -STR🌿</title>
+
+    <link rel="stylesheet" href="assets/css/products_listing.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/template.css">
+    <script src="assets/js/template.js"></script>
+</head>
+
+<body>
+
+    <div data-template="#site-header"></div>
+
+    <main>
+        <section class="container py-4 ">
+
+            <div class="d-flex align-items-center mb-4">
+
+                <!-- Back Button -->
+                <button class="btn back-btn me-3" onclick="history.back()" aria-label="Go back">
+                    <i class="bi bi-arrow-left"></i>
+                </button>
+
+                <h2 class="fw-bold mb-0">Wishlist</h2>
+
+            </div>
+
+            <!-- wishlist products -->
+            <div class="row g-4" id="wishlistContainer"></div>
+
+            <!-- Pagination -->
+            <nav>
+                <ul class="pagination justify-content-center mt-4" id="paginationContainer"></ul>
+            </nav>
+
+        </section>
+    </main>
+
+    <script src="assets/js/config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="assets/js/wishlist.js"></script>
+</body>
+
+</html>

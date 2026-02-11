@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Seller Panel</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/seller_layout.css">
+
+</head>
+
+<body>
+
+    <!-- MOBILE TOP BAR -->
+    <nav class="topbar navbar bg-white px-2 shadow-sm">
+        <div class="d-flex align-items-center w-100 gap-2">
+
+            <!-- MOBILE MENU -->
+            <button class="btn btn-success btn-sm d-md-none" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <!-- DESKTOP SIDEBAR TOGGLE -->
+            <button id="sidebarToggle" class="btn btn-outline-secondary btn-sm d-none d-md-inline">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+
+            <!-- PAGE TITLE -->
+            <span id="pageTitle" class="fw-semibold text-nowrap ms-2">
+                Dashboard
+            </span>
+
+            <!-- SEARCH -->
+            <div class="input-group input-group-sm flex-grow-1 mx-2 position-relative">
+                <span class="input-group-text bg-white">
+                    <i class="bi bi-search text-muted"></i>
+                </span>
+
+                <input type="text" class="form-control pe-4" id="globalSearchInput"
+                    placeholder="Search by products , category , orders , customers , district">
+
+                <!-- ❌ CLEAR ICON -->
+                <span id="clearSearchBtn" class="search-clear d-none">&times;</span>
+            </div>
+
+            <!-- ICONS -->
+            <!-- <button class="btn btn-light btn-sm rounded-circle position-relative" id="notificationBtn">
+                <i class="bi bi-bell"></i>
+                <span id="notificationBadge"
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none">0</span>
+            </button>
+
+            <button class="btn btn-light btn-sm rounded-circle" id="closeNotification">
+                <i class="bi bi-person-circle"></i>
+            </button> -->
+        </div>
+    </nav>
+
+
+
+    <!-- MOBILE SIDEBAR -->
+    <div class="offcanvas offcanvas-start bg-success text-white" id="mobileSidebar">
+        <div class="offcanvas-header">
+            <h5>  STR 🌿</h5>
+            <button class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body p-0">
+            <ul class="nav flex-column">
+
+                <!-- Dashboard -->
+                <a href="#" class="nav-link text-white px-3 py-2" data-page="Dashboard" data-route="dashboard"
+                    data-bs-dismiss="offcanvas">
+                    <i class="bi bi-speedometer2 me-2"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <!-- Products -->
+                <a href="#" class="nav-link text-white px-3 py-2" data-page="Products" data-route="products"
+                    data-bs-dismiss="offcanvas">
+                    <i class="bi bi-box-seam me-2"></i>
+                    <span>Products</span>
+                </a>
+
+                <!-- Orders -->
+                <a href="#" class="nav-link text-white px-3 py-2" data-page="Orders" data-route="orders"
+                    data-bs-dismiss="offcanvas">
+                    <i class="bi bi-bag-check me-2"></i>
+                    <span>Orders</span>
+                </a>
+
+                <!-- logout -->
+                <li class="nav-item mt-auto">
+                    <a href="#" class="nav-link text-white px-3 py-2" data-bs-dismiss="offcanvas" id="logoutBtn">
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <!-- NOTIFICATION OFFCANVAS -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="notificationCanvas">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="mb-0">Notifications</h5>
+            <button class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+
+        <div class="offcanvas-body p-0">
+            <ul class="list-group list-group-flush" id="notificationList"></ul>
+
+            <div id="noNotifications" class="text-center text-muted py-4 d-none">
+                <i class="bi bi-bell-slash fs-3"></i>
+                <p class="mb-0">No notifications</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="layout">
+
+        <!-- DESKTOP SIDEBAR -->
+        <nav id="desktopSidebar" class="sidebar d-none d-md-block p-0">
+            <div class="text-center py-3 fw-bold border-bottom">Salem Tamil Roots 🌿</div>
+            <ul class="nav flex-column mt-3">
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="Dashboard" data-route="dashboard" data-label="Dashboard">
+                        <i class="bi bi-speedometer2"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="Products" data-route="products" data-label="Products">
+                        <i class="bi bi-box-seam"></i>
+                        <span>Products</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="Orders" data-route="orders" data-label="Orders">
+                        <i class="bi bi-receipt"></i>
+                        <span>Orders</span>
+                    </a>
+                </li>
+
+                <!-- logout -->
+                <li class="nav-item mt-auto">
+                    <a href="#" class="nav-link " id="logoutBtn" data-label="logout">
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <!-- MAIN -->
+        <main class="main-content  ">
+            <nav id="breadcrumbNav" class="mb-3 d-none ">
+                <ol class="breadcrumb mb-0"></ol>
+            </nav>
+            <div id="pageContent"></div>
+        </main>
+    </div>
+    
+    <script  src="assets/js/config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="assets/js/seller_layout.js" defer></script>
+    <script type="module" src="assets/js/dashboard.js" defer></script>
+    <script type="module" src="assets/js/product.js" defer></script>
+    <script type="module" src="assets/js/orders.js" defer></script>
+    <script type="module" src="assets/js/manageProduct.js" defer></script>
+    <script type="module" src="assets/js/sellerProductPreview.js" defer></script>
+
+    <!-- GLOBAL TOAST STACK (TOP RIGHT) -->
+<div id="toastStack" class="toast-container position-fixed top-0 end-0 p-3" style="z-index:9999"></div>
+
+
+</body>
+
+</html>

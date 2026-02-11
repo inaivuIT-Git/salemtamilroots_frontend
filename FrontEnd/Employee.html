@@ -1,0 +1,106 @@
+<div class="table-responsive mt-3">
+    <table class="table table-bordered table-hover align-middle">
+        <thead class="table-success text-center">
+            <tr>
+                <th>#</th>
+                <th>Employee ID</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Department</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody class="text-center" id="employeeTableBody"></tbody>
+    </table>
+</div>
+
+<!-- EMPLOYEE DETAILS MODAL -->
+<div class="modal fade" id="employeeDetailModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Header -->
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    Employee Details - <span id="modalEmployeeId"></span>
+                </h5>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body">
+                <table class="table table-borderless">
+
+                    <tr>
+                        <th>Name</th>
+                        <td>
+                            <span class="view-field" id="empName"></span>
+                            <input class="form-control edit-field d-none" id="editEmpName">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Email</th>
+                        <td>
+                            <span class="view-field" id="empEmail"></span>
+                            <input class="form-control edit-field d-none" id="editEmpEmail">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Phone</th>
+                        <td>
+                            <span class="view-field" id="empPhone"></span>
+                            <input class="form-control edit-field d-none" id="editEmpPhone">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Role</th>
+                        <td>
+                            <input class="form-control edit-field d-none" id="editEmpRole">
+                            <span class="view-field" id="empRole"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Department</th>
+                        <td>
+                            <input class="form-control edit-field d-none" id="editEmpDept">
+                            <span class="view-field" id="empDept"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Status</th>
+                        <td>
+                            <select class="form-select edit-field d-none" id="editEmpStatus">
+                                <option>Active</option>
+                                <option>Inactive</option>
+                            </select>
+                            <span class="view-field" id="empStatus"></span>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+
+
+            <!-- Footer -->
+            <div class="modal-footer">
+                <button class="btn btn-outline-success edit-employee-btn">
+                    <i class="bi bi-pen"></i> Edit
+                </button>
+
+                <button class="btn btn-success d-none save-employee-btn">
+                    <i class="bi bi-check"></i> Save
+                </button>
+            </div>
+
+  <!-- <img src="/FrontEnd/assets/Images/NoProductImage.png" alt=""> -->
+        </div>
+    </div>
+</div>
+
+<!-- <img src="/FrontEnd/assets/Images/NoProductImage.png" alt=""> -->

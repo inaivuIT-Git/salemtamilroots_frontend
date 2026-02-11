@@ -1,0 +1,359 @@
+<!-- PAGE HEADER -->
+<section class="product-header mb-4">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <h4 class="text-success mb-0">🌿 Add New Product</h4>
+    </div>
+    <div class="col-md-6 text-end">
+      <button class="btn btn-outline-secondary" id="importProductBtn">
+        <i class="bi bi-upload me-1"></i> Import
+      </button>
+      <input type="file" id="importFileInput" hidden>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="row g-4 align-items-start">
+
+  <!-- LEFT COLUMN -->
+  <div class="col-lg-7">
+
+    <!-- PRODUCT DETAILS CARD -->
+    <div class="card p-4 ">
+
+      <!-- CATEGORY -->
+      <div class="mb-4">
+        <label class=" mb-3 form-label required">Category</label>
+        <select class="form-select " id="categorySelect" name="category">
+          <option value="">Select Category</option>
+        </select>
+      </div>
+
+      <!-- PRODUCT INFO -->
+      <div class="section-header mb-3">
+        <span class="fs-5 fw-semibold ">Product Info</span>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label required">Product Name</label>
+        <input type="text" name="name" class="form-control" placeholder="Herbal Hair Growth Powder">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label required">Tags</label>
+
+        <i class="bi bi-info-circle-fill ms-1" role="button" tabindex="0" data-bs-toggle="popover"
+          data-bs-placement="right" data-bs-trigger="click" data-bs-html="true"
+          data-bs-content="
+                    <strong>Example:</strong> <br> herbal hair growth powder,<br> natural hair growth,<br> ayurvedic hair care ">
+        </i>
+        <textarea class="form-control" rows="2" name="tags" placeholder="Comma separated tags"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label required">Short Description</label>
+        <i class="bi bi-info-circle-fill ms-1" role="button" data-bs-toggle="popover" data-bs-placement="right"
+          data-bs-trigger="click" data-bs-content="Short summary shown in product listing pages">
+        </i>
+        <textarea class="form-control" rows="2" name="shortDesc" placeholder="Simple two line description"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label required">Full Description</label>
+        <i class="bi bi-info-circle-fill ms-1" role="button" tabindex="0" data-bs-toggle="popover"
+          data-bs-placement="right" data-bs-trigger="click" data-bs-html="true" data-bs-content="
+       <strong>Product:</strong> Herbal Hair Growth Powder – 500g<br><br>
+
+       <strong>Description:</strong><br>
+       A traditional Ayurvedic herbal blend that promotes natural hair growth,
+       reduces hair fall, strengthens roots, and improves scalp health.<br><br>
+
+       <strong>Key Benefits:</strong>
+       <ul class='mb-1'>
+         <li>Promotes natural hair growth</li>
+         <li>Reduces hair fall & breakage</li>
+       </ul>
+
+       <strong>How to Use:</strong><br>
+       Mix with warm water / curd / herbal oil. Apply on scalp, leave for 20–30
+       minutes and rinse. Use 1–2 times weekly.<br><br>
+
+       <strong>Product Details:</strong><br>
+       Weight: 100g / 200g / 500g<br>
+       Suitable for: Men & Women<br>
+       Shelf Life: 12–24 months<br>
+       Free from: Chemicals, parabens, sulfates<br><br>
+
+       <strong>Storage:</strong><br>
+       Store in a cool, dry place away from sunlight.
+     ">
+        </i>
+        <textarea class="form-control" rows="5" name="fulldescription"
+          placeholder="Includes Product Name with Weightage ,benefits , usage, storage & ingredients"></textarea>
+      </div>
+
+      <div class="row g-3 mb-3">
+        <div class="col-md-6">
+          <label class="form-label required">Quantity</label>
+          <input type="number" name="quantity" class="form-control" placeholder="100">
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label required">Select Units</label>
+          <select class="form-select" name="units" required>
+            <option value="" disabled selected>Select Unit</option>
+            <option value="ML">ml</option>
+            <option value="LTR">ltr</option>
+            <option value="G">g</option>
+            <option value="KG">kg</option>
+            <option value="PCS">pcs</option>
+            <option value="TABs">tabs</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- PRICE & STOCK -->
+      <div class="mb-4">
+        <h6 class="fw-semibold mb-3">Price & Stock</h6>
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label required">Base Price</label>
+            <input type="number" class="form-control" name="basePrice">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Selling Price (Auto)</label>
+            <input type="text" id="sellingPrice" class="form-control bg-light" readonly />
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label required">Discount Type</label>
+            <select class="form-select" name="discType">
+              <option value="None">No Discount</option>
+              <option value="Percentage">Percentage</option>
+              <option value="Flat">Flat</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Discount Value</label>
+            <input type="number" name="discamnt" class="form-control">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label ">Offer Start Date</label>
+            <input type="datetime-local" name="offStartDate" class="form-control">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Offer End Date</label>
+            <input type="datetime-local" name="offEndDate" class="form-control">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label required">Initial Stock</label>
+            <input type="number" class="form-control" name="initialStock">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label required">Minimum Stock</label>
+            <input type="number" class="form-control" name="minStock">
+          </div>
+
+          <div class="d-flex gap-4 mt-3">
+            <div class="form-check form-switch">
+              <input class="form-check-input" name="isactive" type="checkbox" checked>
+              <label class="form-check-label required">Is Active</label>
+            </div>
+
+            <div class="form-check form-switch">
+              <input class="form-check-input" name="isSeasonal" type="checkbox">
+              <label class="form-check-label">Is Seasonal</label>
+            </div>
+
+            <div class="form-check form-switch">
+              <input class="form-check-input" name="isFree" type="checkbox">
+              <label class="form-check-label">Is Free</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FUTURE PRICE HISTORY -->
+      <div class="my-4">
+        <h6 class="fw-semibold">Future Price History (Optional)</h6>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="uploadPriceCheckbox" />
+          <label class="form-check-label" for="uploadPriceCheckbox"> Upload Multiple Prices</label>
+        </div>
+
+        <!-- MANUAL FUTURE PRICE (DEFAULT) -->
+        <div id="futurePriceManual" class="row g-3 mt-3">
+          <div class="col-md-4">
+            <label class="form-label">Future Base Price</label>
+            <input type="number" class="form-control" id="futureBasePrice">
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label">Price Effective From</label>
+            <input type="date" class="form-control" id="priceEffectiveFrom">
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label">Price Effective To</label>
+            <input type="date" class="form-control" id="priceEffectiveTo">
+          </div>
+        </div>
+
+        <!-- FILE UPLOAD -->
+        <div id="futurePriceUpload" class="d-none mt-3">
+          <input type="file" id="futurePriceFile" class="form-control" accept=".csv,.xlsx">
+        </div>
+      </div>
+
+      <!-- PRODUCT BATCH -->
+      <div class="mb-4">
+        <h6 class="fw-semibold mb-3">Product Batch</h6>
+
+        <div class="mb-3">
+          <label class="form-label required">Batch Code</label>
+          <input type="text" class="form-control" name="batchcode" placeholder="BATCH001">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label required">Manufactured Date</label>
+          <input type="date" class="form-control" name="manufacturedDate">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label required">Expiry Date</label>
+          <input type="date" class="form-control" name="expiryDate">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label required">Batch Quantity</label>
+          <input type="number" class="form-control" name="batchQuantity" placeholder="Eg :100">
+        </div>
+      </div>
+
+      <!-- SAVE PRODUCT -->
+      <div class="text-end">
+        <button class="btn btn-colors" id="saveProductBtn">
+          <span id="saveProductText">Save Product</span>
+          <span class="spinner-border spinner-border-sm ms-2 d-none" id="saveProductLoader"></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN -->
+  <div class="col-lg-5">
+
+    <!-- IMAGE CARD -->
+    <div class="card p-4 shadow-sm image-card sticky-image-card">
+      <h6 class="fw-semibold mb-3">Upload Images</h6>
+
+      <div class="image-box mb-3" id="mainImageBox">
+        <i class="bi bi-plus-lg"></i>
+        <img id="mainImagePreview" class="d-none">
+      </div>
+      <input type="file" id="mainImageInput" hidden>
+
+      <div class="d-flex gap-2 flex-wrap" id="thumbContainer">
+        <div class="thumb add-thumb">
+          <i class="bi bi-plus-lg"></i>
+        </div>
+      </div>
+      <input type="file" id="additionalImageInput" hidden>
+
+      <div class="text-end mt-3">
+        <button class="btn btn-colors" id="saveProductImagesBtn">
+          <span id="saveImagesText">Save Images</span>
+          <span class="spinner-border spinner-border-sm ms-2 d-none" id="saveImagesLoader"></span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- IMPORT PREVIEW MODAL -->
+<div class="modal fade" id="importPreviewModal" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Import Preview</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <p id="importSummaryText" class="fw-semibold mb-3"></p>
+
+        <div class="table-responsive">
+          <table class="table table-bordered table-sm">
+            <thead class="table-success text-center">
+              <tr></tr>
+            </thead>
+            <tbody id="importPreviewBody"></tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-colors" id="confirmImportBtn">
+          Confirm Import
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- FUTURE PRICE PREVIEW MODAL -->
+<div class="modal fade" id="futurePricePreviewModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Future Price History Preview</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="table-responsive">
+          <table class="table table-bordered table-sm align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>#</th>
+                <th>Base Price (₹)</th>
+                <th>Effective From</th>
+                <th>Effective To</th>
+                <th>Status</th>
+                <th>Errors</th>
+              </tr>
+            </thead>
+            <tbody id="futurePricePreviewBody"></tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

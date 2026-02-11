@@ -1,0 +1,221 @@
+/* ================= ROOT VARIABLES ================= */
+:root {
+  /* ===== Layout ===== */
+  --sidebar-width: 280px;
+  --header-height: 70px;
+
+  /* ===== Fonts ===== */
+  --font-primary: 'Inter', sans-serif;
+
+  /* ===== Base Colors ===== */
+  --color-bg-main: #f7faf7;
+  --color-bg-white: #ffffff;
+  --color-text-dark: #2d3748;
+  --color-text-muted: #4b5563;
+
+  /* ===== Brand ===== */
+  --primary-color: #2f855a;
+  --primary-light: #e6f4ea;
+  --primary-dark: #1f6f4a;
+  --accent-color: #7cb342;
+
+  /* ===== Borders ===== */
+  --border-light: #e5e7eb;
+  --border-soft: #f9fafb;
+
+  /* ===== Shadows ===== */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-active: 0 4px 10px rgba(47, 133, 90, 0.25);
+
+  /* ===== Status Colors ===== */
+  --placed-bg: #e0f2fe;
+  --placed-text: #0369a1;
+
+  --shipped-bg: #fef3c7;
+  --shipped-text: #92400e;
+
+  --delivered-bg: #dcfce7;
+  --delivered-text: #166534;
+
+  --cancelled-bg: #fee2e2;
+  --cancelled-text: #991b1b;
+}
+
+/* ================= BASE ================= */
+body {
+  background-color: var(--color-bg-main);
+  font-family: var(--font-primary);
+  color: var(--color-text-dark);
+  padding-top: var(--header-height); /* offset for fixed header */
+}
+
+/* ================= HEADER ================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background: var(--color-bg-white);
+  border-bottom: 1px solid var(--border-light);
+  z-index: 1200;
+}
+
+.navbar-brand {
+  line-height: 1.2;
+}
+
+.search-bar {
+  max-width: 500px;
+  width: 100%;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--header-height));
+  position: fixed;
+  left: 0;
+  top: var(--header-height);
+  background: var(--color-bg-white);
+  border-right: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  padding-top: var(--header-height); /* content below header */
+}
+
+.sidebar-header {
+  padding: 2rem 1.5rem;
+  border-bottom: 1px solid var(--primary-light);
+}
+
+.sidebar-user-profile {
+  padding: 1.5rem;
+  background: var(--color-bg-white);
+}
+
+/* ================= NAV LINKS ================= */
+.nav-pills .nav-link {
+  color: var(--color-text-muted);
+  font-weight: 500;
+  padding: 0.75rem 1.25rem;
+  margin: 0.2rem 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.nav-pills .nav-link i {
+  font-size: 1.2rem;
+  margin-right: 12px;
+  color: var(--primary-color);
+}
+
+.nav-pills .nav-link.active {
+  background-color: var(--primary-color);
+  color: var(--color-bg-white) ;
+  box-shadow: var(--shadow-active);
+}
+
+.nav-pills .nav-link.active i {
+  color: var(--color-bg-white);
+}
+
+.nav-pills .nav-link:hover:not(.active) {
+  background-color: var(--border-soft);
+  color: var(--primary-color);
+}
+
+/* ================= SIDEBAR OVERLAY (MOBILE) ================= */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1030;
+}
+
+.logout-wrapper {
+  margin-top: auto;
+  padding: 1.5rem;
+  border-top: 1px solid var(--border-light);
+}
+
+/* ================= MAIN CONTENT ================= */
+.main-content {
+  margin-left: var(--sidebar-width);
+  padding: 2rem;
+  min-height: calc(100vh - var(--header-height));
+}
+
+/* ================= CARDS ================= */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.5rem;
+}
+
+/* ================= STATUS BADGES ================= */
+.status-badge {
+  padding: 0.35rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.bg-placed {
+  background: var(--placed-bg);
+  color: var(--placed-text);
+}
+
+.bg-shipped {
+  background: var(--shipped-bg);
+  color: var(--shipped-text);
+}
+
+.bg-delivered {
+  background: var(--delivered-bg);
+  color: var(--delivered-text);
+}
+
+.bg-cancelled {
+  background: var(--cancelled-bg);
+  color: var(--cancelled-text);
+}
+
+/* ================= ADDRESS ================= */
+.address-card {
+  border: 2px solid transparent;
+  transition: 0.2s;
+}
+
+.address-card.default {
+  border-color: var(--primary-color);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+  .sidebar {
+    padding-top: 0;
+    top: 0;
+    height: 100vh;
+    left: -100%;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .sidebar-overlay.active {
+    display: block;
+  }
+}

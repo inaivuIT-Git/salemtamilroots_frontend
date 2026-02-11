@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* ================= ROOT VARIABLES ================= */
+:root {
+  /* ===== Brand ===== */
+  --primary-blue: #2874f0;
+
+  /* ===== Backgrounds ===== */
+  --bg-gray: #f1f3f6;
+  --bg-white: #ffffff;
+  --bg-light: #f9f9f9;
+  --bg-active: #f5faff;
+
+  /* ===== Text ===== */
+  --text-dark: #212121;
+  --text-muted: #878787;
+
+  /* ===== Layout ===== */
+  --sidebar-width: 280px;
+  --navbar-height: 60px;
+
+  /* ===== Borders ===== */
+  --border-light: #dbdbdb;
+  --border-lighter: #f0f0f0;
+  --border-input: #d4d4d4;
+
+  /* ===== Radius ===== */
+  --radius-sm: 2px;
+
+  /* ===== Shadows ===== */
+  --shadow-hover: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ================= BASE ================= */
+body {
+  background-color: var(--bg-gray);
+  font-family: 'Inter', sans-serif;
+  color: var(--text-dark);
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: var(--bg-white);
+  border-right: 1px solid var(--border-light);
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s;
+}
+
+.sidebar-user-card {
+  padding: 15px 20px;
+  background: var(--bg-white);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border-lighter);
+}
+
+/* ================= NAV LINKS ================= */
+.nav-link {
+  color: var(--text-muted);
+  font-weight: 500;
+  padding: 15px 25px;
+  border-bottom: 1px solid var(--border-lighter);
+}
+
+.nav-link.active {
+  background: var(--bg-active);
+  color: var(--primary-blue) ;
+  border-right: 4px solid var(--primary-blue);
+}
+
+/* ================= TOP NAVBAR ================= */
+.top-navbar {
+  margin-left: var(--sidebar-width);
+  height: var(--navbar-height);
+  background: var(--primary-blue);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ================= MAIN CONTENT ================= */
+.main-content {
+  margin-left: var(--sidebar-width);
+  padding: 20px;
+}
+
+/* ================= ADDRESS ================= */
+.address-card {
+  border: 1px solid #e0e0e0;
+  border-radius: var(--radius-sm);
+  transition: 0.2s;
+}
+
+.address-card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.address-form-container {
+  background: var(--bg-light);
+  border: 1px solid var(--primary-blue);
+  padding: 25px;
+  border-radius: var(--radius-sm);
+}
+
+/* ================= FORMS (FLIPKART STYLE) ================= */
+.form-control,
+.form-select {
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  border: 1px solid var(--border-input);
+}
+
+.form-control:focus {
+  border-color: var(--primary-blue);
+  box-shadow: none;
+} 
+
+.error-text {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 4px;
+} 
+
+.form-control.is-invalid, 
+.form-select.is-invalid {
+  border-color: #dc3545;
+}
+
+/* ================= BUTTONS ================= */
+.btn-primary {
+  background: var(--primary-blue);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  padding: 10px 30px;
+}
+
+.btn-outline-primary {
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+  border-radius: var(--radius-sm);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+  .sidebar {
+    left: -100%;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .top-navbar,
+  .main-content {
+    margin-left: 0;
+  }
+}

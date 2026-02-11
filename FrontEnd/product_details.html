@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AyurRoots</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/product_detail.css">
+    <link rel="stylesheet" href="assets/css/template.css">
+    <script src="assets/js/template.js"></script>
+</head>
+
+<body>
+    <!-- loader -->
+    <div class="dots-loader d-none" id="dots-loader">
+        <span></span><span></span><span></span>
+    </div>
+    <!-- toast container -->
+    <div id="toastContainer"></div>
+    <div data-template="#site-header"></div>
+    <!-- Product details -->
+    <main class="product-details">
+        <div id="stockAlert"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-5 my-3 h-100 sticky-left" id="leftSection">
+                    <!-- main image -->
+                    <div id="mainImage">
+                        <!-- <img src="assets/Images/productDetails/productImages/Baths & Soaks.png"
+                            alt="Vita Roots" class="img-fluid" id="product-details__mainImage"> -->
+                    </div>
+                    <!-- images -->
+                    <div class="d-flex justify-content-center gap-3 mt-3 product-details__thumbnail" id="sideImage">
+                    </div>
+                    <!-- Button -->
+                    <div class="d-flex justify-content-evenly mt-3">
+                        <button class="btn product-details__cartBtn py-2" id="addToCartBtn"><i
+                                class="bi bi-cart-plus"></i> Add to
+                            cart</button>
+                        <button class="btn product-details__buyBtn py-2" id="buyNowBtn"> <i class="bi bi-bag-heart"></i>
+                            Buy Now</button>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-7 my-3 p-3 content">
+                    <!-- product name & about -->
+                    <div class="d-flex justify-content-between align-items-start gap-3">
+                        <h4 id="productName" class="mb-0 fw-bold"></h4>
+
+                        <div id="detailWishlist" class="detail-wishlist text-center">
+                            <i class="bi bi-heart fs-5"></i>
+                            <div class="wishlist-text">Wishlist</div>
+                        </div>
+                    </div>
+
+
+                    <p class="mb-2" id="description"></p>
+                    <!-- Ratings -->
+                    <div class="d-flex gap-3 mb-2">
+                        <div class="rating text-warning" id="ratingStar">
+                        </div>
+                        <div class="text-success">
+                            <p id="ratingReviews"></p>
+                        </div>
+
+                    </div>
+
+                    <!-- price -->
+                    <div class="d-flex align-items-center mb-2 text-center">
+                        <p class="fw-bold me-2  fs-5" id="price"></p>
+                        <p class="text-muted me-4 fs-6 text-decoration-line-through" id="mrp"></p>
+                        <p class="text-danger fw-bold fs-6" id="discount"></p>
+                    </div>
+                    <!-- Size or quantity -->
+                    <hr>
+                    <div>
+                        <p class="fs-5 fw-normal mb-2">Size</p>
+                        <div id="sizeContainer"></div>
+
+                    </div>
+                    <hr>
+
+                    <!-- <div class="d-flex gap-5 my-3 text-center">
+                        <div class="text-center">
+                            <img src="assets/Images/productDetails/options/returnable.png" alt="returnable"
+                                height="50px" width="50px" class="img-fluid">
+                            <p class="">Returnable</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="assets/Images/productDetails/options/freedelivery.png"
+                                alt="Free delivery" height="50px" width="50px" class="img-fluid">
+                            <p class="">Free Delivery</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="assets/Images/productDetails/options/cod.png" alt="Pay on delivery"
+                                height="50px" width="50px" class="img-fluid">
+                            <p class="">Pay on delivery</p>
+                        </div>
+                    </div>
+                    <hr> -->
+                    <!-- Product Details -->
+                    <div class="">
+                        <p class="fs-5 fw-normal mb-2">Product Details</p>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <td class="text-muted">Name</td>
+                                    <td id="name">–</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">Description</th>
+                                    <td id="descrip">-</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">Highlights</td>
+                                    <td>
+                                        <ul>
+                                            <li>100% Pure & Cold-Pressed</li>
+                                            <li>Multipurpose – Cooking, Hair & Skin</li>
+                                            <li>Preservative-Free & Chemical-Free</li>
+                                            <li>Sourced from farm-fresh coconuts</li>
+                                            <li>Locally produced & packed with care</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">Seller Info</td>
+                                    <td>
+                                        <table class="table table-borderless sellerInfo">
+                                            <tr>
+                                                <td class="text-muted">Seller Name</td>
+                                                <td id="sellerName"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-muted">Location</td>
+                                                <td id="location">-</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-muted">Seller Type</td>
+                                                <td>Verified Seller <i class="bi bi-patch-check-fill text-primary"></i>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-muted">Phone</td>
+                                                <td id="sellerPhone"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-muted">Email</td>
+                                                <td id="sellerEmail"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-muted">About the Seller</td>
+                                                <td id="aboutSeller">--</td>
+                                            </tr>
+
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+                    <!-- Reviews and Ratings -->
+                    <div>
+                        <h3 class="mb-3">Ratings & Reviews</h3>
+                        <div class="p-3 pt-0" id="reviewCard">
+                            <p class="text-center text-muted">No Reviews <i class="bi bi-chat-dots"></i></p>
+                            <!-- <div class="d-flex align-items-center">
+                                <div>
+                                    <img src="assets/Images/productDetails/profileImage.jpg"
+                                        alt="tharunkumar profile image" width="50px" height="50px" class="img-fluid">
+
+                                </div>
+                                <div>
+                                    <p class="fs-5 ms-3" id="reviewerName">Tharunkumar</p>
+                                    <p class="ms-3" id="reviewerRating">
+                                    </p>
+                                </div>
+
+                            </div>
+                            <div>
+                                <p id="reviewerComment"></p>
+                                <p class="text-muted" id="reviewerPost">10 min ago</p>
+                            </div> -->
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+
+    <div data-template="#site-footer"></div>
+    <script src="assets/js/config.js"></script>
+    <script type="module" src="assets/js/callApi.js"></script>
+    <script type="module" src="assets/js/template.js"></script>
+    <script type="module" src="assets/js/product_details.js"></script>
+</body>
+
+
+</html>

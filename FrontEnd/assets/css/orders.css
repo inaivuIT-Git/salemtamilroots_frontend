@@ -1,0 +1,520 @@
+/* ================= ROOT VARIABLES ================= */
+:root {
+  /* ===== Fonts ===== */
+  --font-primary: 'Inter', sans-serif;
+
+  /* ===== Base Colors ===== */
+  --primary-color: #084422;
+  --bg-light: #f1f3f6;
+  --color-white: #ffffff;
+  --color-text-dark: #2d3748;
+
+  /* ===== Borders & Shadows ===== */
+  --border-light: #e0e0e0;
+  --border-muted: #dee2e6;
+  --shadow-card: 0 2px 4px rgba(0, 0, 0, 0.08);
+
+  /* ===== Status Colors ===== */
+  --pending-bg: #fff3cd;
+  --pending-text: #856404;
+
+  --confirmed-bg: #e3f2fd;
+  --confirmed-text: #0d47a1;
+
+  --processing-bg: #ede7f6;
+  --processing-text: #4527a0;
+
+  --shipped-bg: #e8f0fe;
+  --shipped-text: #1967d2;
+
+  --out-bg: #fff8e1;
+  --out-text: #ff8f00;
+
+  --placed-bg: #fff3e0;
+  --placed-text: #e65100;
+
+  --delivered-bg: #e6f4ea;
+  --delivered-text: #1e8e3e;
+
+  --cancelled-bg: #fee2e2;
+  --cancelled-text: #991b1b;
+
+  /* ===== Rating ===== */
+  --star-muted: #ccc;
+  --star-active: #ffc107;
+
+  /* ===== Radius ===== */
+  --radius-sm: 4px;
+}
+
+/* ================= BASE ================= */
+body {
+  background-color: var(--bg-light);
+  font-family: var(--font-primary);
+  color: var(--color-text-dark);
+}
+
+/* ================= CARD ================= */
+.card {
+  border: none;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+}
+
+/* Order Status Timeline */
+/* .step-item {
+    position: relative;
+    flex: 1;
+    text-align: center;
+} */ 
+ /* .step-item { 
+   position: relative; 
+   flex: 1;  
+   text-align: center;
+   opacity: 0.3; 
+   transform: translateY(10px); 
+   transition: all 0.4s ease;
+ } 
+ .step-item.active { 
+    opacity: 1;
+    transform: translateY(0);
+ }
+
+/* .step-item::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #e0e0e0;
+    top: 15px;
+    left: 50%;
+    z-index: 1;
+}  */
+/* .step-item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -50%;
+    width: 100%;
+    height: 2px;
+    background-color: #dee2e6;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.step-item:last-child::after {
+  display: none;
+}
+
+.step-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--color-white);
+  border: 2px solid var(--border-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.step-item.active .step-icon {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    color: #fff;
+} */
+
+/* .step-item.active::after { 
+    transform: scaleX(1);
+    background: var(--primary-color);
+} */ 
+
+/* ================= STATUS BADGES ================= */
+.badge-status {
+  padding: 0.5em 1em;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: capitalize;
+}
+
+.status-pending {
+  background-color: var(--pending-bg);
+  color: var(--pending-text);
+}
+
+.status-confirmed {
+  background-color: var(--confirmed-bg);
+  color: var(--confirmed-text);
+}
+
+.status-processing {
+  background-color: var(--processing-bg);
+  color: var(--processing-text);
+}
+
+.status-shipped {
+  background-color: var(--shipped-bg);
+  color: var(--shipped-text);
+}
+
+.status-out {
+  background-color: var(--out-bg);
+  color: var(--out-text);
+}
+
+.status-placed {
+  background-color: var(--placed-bg);
+  color: var(--placed-text);
+}
+
+.status-delivered {
+  background-color: var(--delivered-bg);
+  color: var(--delivered-text);
+}
+
+.status-cancelled {
+  background-color: var(--cancelled-bg);
+  color: var(--cancelled-text);
+}
+
+/* ================= STAR RATING ================= */
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  color: var(--star-muted);
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: var(--star-active);
+}
+
+/* ================= ORDER ITEM ROW ================= */
+.order-item-row {
+  display: flex;
+  align-items: center;
+}
+
+.item-middle {
+  min-width: 160px;
+}
+
+.item-right {
+    min-width: 120px;
+} 
+
+/* --- Updated Order Status Timeline --- */
+ 
+.step-item { 
+    position: relative; 
+    flex: 1;  
+    text-align: center;
+    opacity: 0.4; /* Slightly higher opacity for better legibility */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+} 
+
+.step-item.active,.step-item.completed 
+ { 
+    opacity: 1;
+}  
+.step-item.active {
+    transform: scale(1.05);
+}
+
+/* The Connecting Line */
+.step-item::after {
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    width: 100%;
+    height: 3px;
+    background: #e2e8f0; 
+    transform-origin: left center;
+    transform: scaleX(0);
+    z-index: 0;
+}
+ .step-item:last-child::after {
+    display: none;
+}
+    
+/* Active Progress Line */ 
+.page-ready .step-item.completed::after {
+    background: var(--primary-color); 
+    animation: progressFill 0.7s cubic-bezier(.4,0,.2,1) forwards;
+}
+
+/* Half line fill for ACTIVE step */
+.page-ready .step-item.active::after {
+    background: linear-gradient(
+        to right,
+        var(--primary-color) 50%,
+        #e2e8f0 50%
+    ); 
+    animation: progressFill 0.7s cubic-bezier(.4,0,.2,1) forwards;
+} 
+
+@keyframes progressFill { 
+    from { transform: scaleX(0); } 
+    to { transform: scaleX(1); }
+}
+
+/* .step-item.completed::after,
+.step-item.active::after {
+    animation: progressFill 0.6s ease forwards;
+} */
+
+/* Step Icons - Clean & Minimal */
+.step-icon {
+    width: 32px;
+    height: 32px;
+    background: #fff;
+    border: 2px solid #cbd5e1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    position: relative;
+    z-index: 2;
+    font-size: 0.9rem;
+    color: #64748b;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0 4px #f8fafc; /* Adds a nice gap between line and icon */
+}
+
+/* Active State Colors */
+.step-item.active .step-icon
+ {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    color: #fff;
+    box-shadow: 0 0 0 4px #fff, 0 4px 10px rgba(8, 68, 34, 0.2);
+} 
+.step-item.completed .step-icon {  
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+}
+/* Step Labels */
+.step-item small {
+    display: block;
+    font-weight: 600;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    /* letter-spacing: 0.05em; */
+    color: #475569;
+    /* margin-top: 4px; */
+}
+
+.step-item.active small {
+    color: var(--primary-color);
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .step-item small {
+        font-size: 0.6rem;
+        letter-spacing: 0;
+    }
+    .step-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
+} 
+/* --- Updated Cancel Order Styling --- */
+
+/* Main Cancel Button - Pill style with subtle transition */
+.cancel-btn { 
+    border: 1.5px solid #e2e8f0; 
+    color: #64748b; 
+    background: #fff; 
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 6px;
+    letter-spacing: 0.02em;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+} 
+
+.cancel-btn:hover { 
+    background: #fef2f2; 
+    border-color: #fecaca;
+    color: #dc3545; 
+} 
+
+/* Inline info message (e.g., "Cannot cancel after shipping") */
+.cancel-inline-msg {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    background: #f8fafc;
+    padding: 6px 12px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px dashed #e2e8f0;
+} 
+
+.cancel-inline-msg::before {
+    content: "\F431"; /* Bootstrap Icon Info Circle if using bi-font */
+    font-family: "bootstrap-icons";
+    font-size: 0.9rem;
+    color: #64748b;
+} 
+
+/* The prompt panel that opens when clicking Cancel */ 
+.cancel-reason-panel { 
+    margin-top: 1.5rem; 
+    padding: 1.25rem; 
+    background: #ffffff; 
+    border-radius: 8px; 
+    border: 1px solid #eef2f6;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    animation: slideDown 0.3s ease-out;
+}  
+/* =============== REFUND STYLE ============== */
+/* Unified Status Card */
+.order-status-header {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    padding: 24px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Red accent for cancellation */
+.status-cancelled-theme {
+    border-left: 6px solid #dc3545;
+}
+
+.status-icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-right: 16px;
+}
+
+.bg-cancel-light { background-color: #fff5f5; color: #dc3545; }
+
+.refund-inline-badge {
+    display: inline-flex; /* Changed to inline-flex for better icon alignment */
+    align-items: center;
+    background: #e7f3ff;
+    color: #007bff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.cancel-reason-label { 
+    font-size: 0.9rem; 
+    font-weight: 600; 
+    margin-bottom: 0.75rem;  
+    display: block; 
+    color: #1e293b;
+} 
+
+/* Polishing the Select and Textarea inputs */
+.cancel-reason-panel .form-select, 
+.cancel-reason-panel .form-control {
+    border: 1px solid #e2e8f0;
+    padding: 0.6rem;
+    border-radius: 6px;
+    background-color: #fcfcfd;
+    transition: border-color 0.2s;
+}
+
+.cancel-reason-panel .form-select:focus, 
+.cancel-reason-panel .form-control:focus {
+    border-color: #cbd5e1;
+    box-shadow: none;
+    background-color: #fff;
+}
+
+/* Red Confirm Button */
+#confirmCancelBtn {
+    background-color: #dc3545;
+    border: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+/* Light Back Button */
+#cancelReasonBackBtn {
+    color: #64748b;
+    background: #f1f5f9;
+    border: none;
+    font-weight: 500;
+}
+
+#cancelReasonBackBtn:hover {
+    background: #e2e8f0;
+}
+
+/* Cancelled Order Banner (Top of details) */
+#cancelledMessage {
+    border: none;
+    border-left: 4px solid #ef4444;
+    background: #fef2f2;
+    color: #991b1b;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+@media (max-width: 576px) {
+  .order-item-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .item-left,
+  .item-middle,
+  .item-right {
+    width: 100%;
+    text-align: left;
+  }
+
+  .item-right .btn {
+    margin-top: 4px;
+  }
+}
+/* Active Progress Line */ 
+.completed{
+    color: red;
+}
+ .step-item.completed::after {
+    background: var(--primary-color);
+}

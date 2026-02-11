@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500&display=swap');
+
+/* ================= ROOT VARIABLES ================= */
+:root {
+  /* ===== Fonts ===== */
+  --font-primary: 'Poppins', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+
+  /* ===== Body ===== */
+  --body-bg: #ffffff;
+  --body-top-padding: 60px;
+
+  /* ===== Brand Colors ===== */
+  --nav-text-color: #084422;
+  --color-green-dark: #2e7d32;
+  --color-green-hover: #2f4d30;
+  --color-green-light: #66bb6a;
+
+  /* ===== Form Colors ===== */
+  --color-border: #ccc;
+  --color-text-dark: #111;
+
+  /* ===== Shadows ===== */
+  --shadow-input: 0 0 5px rgba(102, 187, 106, 0.5);
+
+  /* ===== Sizes ===== */
+  --icon-left: 25px;
+  --icon-top: 38%;
+  --icon-top-descrip: 27%;
+}
+
+/* ================= BASE ================= */
+body {
+  background-color: var(--body-bg);
+  font-family: var(--font-primary);
+  padding-top: var(--body-top-padding);
+}
+
+h1,
+h2,
+h3,
+header span,
+.product-name {
+  font-family: var(--font-heading);
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  background-color: var(--body-bg);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--nav-text-color);
+  text-decoration: none;
+}
+
+.navbar-brand img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ================= FORM ================= */
+.form-floating > label {
+  color: var(--color-green-dark);
+}
+
+.form-floating .form-control {
+  padding-left: 60px;
+}
+
+.form-control,
+.form-select {
+  border: 2px solid var(--color-border);
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  font-size: 1rem;
+  width: 100%;
+  transition: all 0.3s;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border: 2px solid var(--color-green-light);
+  box-shadow: var(--shadow-input);
+}
+
+/* ================= BUTTON ================= */
+.btn-green {
+  background-color: var(--color-green-dark);
+  color: #ffffff;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-green:hover {
+  background-color: var(--color-green-hover);
+  color: #ffffff;
+}
+
+/* ================= ICON HANDLING ================= */
+.form-floating.position-relative {
+  min-height: 75px; /* prevents icon shift */
+}
+
+.icon {
+  color: var(--color-green-dark);
+  position: absolute;
+  top: var(--icon-top);
+  left: var(--icon-left);
+  transform: translateY(-50%);
+}
+
+.descrip .icon {
+  top: var(--icon-top-descrip);
+}
+
+.form-floating input {
+  padding-left: 2.75rem;
+}
+
+/* ================= VALIDATION ================= */
+.invalid-feedback {
+  font-size: 0.85em;
+}
+
+/* ================= TOAST ================= */
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}

@@ -1,0 +1,139 @@
+<div class="container-fluid">
+
+
+    <!-- PRODUCT NAME + PRICE -->
+    <div class="d-flex align-items-center gap-3 mb-4">
+        <h2 class="fw-bold mb-0" id="productName"></h2>
+
+        <span class="badge bg-success" id="productStatus">Active</span>
+
+        <span class="fs-4 fw-semibold text-success">
+            ₹<span id="productPrice"></span>
+        </span>
+    </div>
+
+    <div class="row g-4">
+
+        <!-- LEFT : PRODUCT DETAILS -->
+        <div class="col-lg-7">
+            <div class="card h-100">
+                <div class="card-body">
+                    <table class="table table-borderless table-sm mb-0 product-detail-table">
+                        <!-- <tr>
+                            <th class="text-muted">Product ID</th>
+                            <td id="detailProductId"></td>
+                        </tr> -->
+                        <tr>
+                            <th class="text-muted">Category</th>
+                            <td id="detailCategory"></td>
+                        </tr>
+
+                        <tr>
+                            <th class="text-muted">Product Name</th>
+                            <td id="detailProductName"></td>
+                        </tr>
+                        <tr>
+                            <th class="text-muted">Short Description</th>
+                            <td id="detailShortDesc"></td>
+                        </tr>
+                        <tr>
+                            <th class="text-muted">Description</th>
+                            <td id="detailDescription"></td>
+                        </tr>
+                        <tr>
+                            <th class="text-muted">Base Price</th>
+                            <td id="detailBasePrice"></td>
+                        </tr>
+                        <tr>
+                            <th class="text-muted">Mrp</th>
+                            <td id="detailmrp"></td>
+                        </tr>
+                        <tr>
+                            <th class="text-muted">selling Price</th>
+                            <td id="detailsellingPrice"></td>
+                        </tr>
+                        <tr>
+                            <th class="text-muted">Quantity</th>
+                            <td id="detailQuantity"></td>
+                        </tr>
+                        <tr>
+                            <th class="text-muted">Unit</th>
+                            <td id="detailUnit"></td>
+                        </tr>
+
+                        <tr>
+                            <th class="text-muted">Discount Type</th>
+                            <td id="detaildistype"></td>
+                        </tr>
+
+                        <tr>
+                            <th class="text-muted">Discount Value</th>
+                            <td id="detaildiscValue"></td>
+                        </tr>
+
+                        <tr>
+                            <th class="text-muted">Stock</th>
+                            <td id="detailStock"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT : IMAGE + HISTORY -->
+        <div class="col-lg-5">
+
+            <!-- IMAGE SECTION -->
+            <div class="upload-card mb-3">
+                <h6>Images</h6>
+
+                <div class="main-image-box mb-3">
+                    <img id="PreviewMainImage" class="w-100 rounded">
+                </div>
+
+                <!-- ✅ wrap thumbs -->
+                <div class="thumb-wrapper">
+                    <div id="PreviewThumbContainer" class="d-flex gap-2"></div>
+                </div>
+
+            </div>
+
+            <!-- PRICE HISTORY -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h6 class="fw-bold">Price History</h6>
+                    <div id="priceHistoryBox">
+                        <p class="text-muted mb-0">
+                            No price history for this product
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DISCOUNT HISTORY -->
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="fw-bold">Discount History</h6>
+                    <div id="discountHistoryBox">
+                        <p class="text-muted mb-0">
+                            No discount history for this product
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="d-flex justify-content-end gap-2 mt-4">
+        <button class="btn btn-outline-success" id="editProductBtn">
+            <i class="bi bi-pen"></i> Edit
+        </button>
+        <button class="btn btn-outline-danger" id="deleteProductBtn">
+            <i class="bi bi-trash"></i> Delete
+        </button>
+    </div>
+
+</div>

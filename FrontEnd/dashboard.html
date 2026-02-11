@@ -1,0 +1,117 @@
+<section class="container my-4 px-0">
+
+    <!-- WELCOME MESSAGE -->
+    <div class="row mb-3 gx-0">
+        <div class="col-12 px-0">
+            <div class="card border-0 shadow-none p-3 bg-transparent">
+                <h5 class="mb-2 fw-semibold">
+                    👋 Welcome back , <span id="sellername">Seller</span>
+                </h5>
+                <p class="mb-0 text-muted">
+                   <strong id="businessName" class="text-success">Business</strong> - Here’s a quick overview of your store performance today.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOP STATS -->
+    <div class="row g-3">
+        <div class="col-6 col-md-6">
+            <div class="card p-3 dashboard-link h-100 text-center " data-page="Products" data-route="products"
+                style="cursor: pointer;">
+                <p class="text-muted mb-1">Total Products</p>
+                <span class="fs-3 fw-bold" id="dashboardProductCount">0</span>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-6">
+            <div class="card p-3 dashboard-link h-100 text-center " data-page="Orders" data-route="orders"
+                style="cursor: pointer;">
+                <p class="text-muted mb-1">Today's Order</p>
+                <span class="fs-3 fw-bold" id="dashboardTodaysorder">0</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CHARTS -->
+
+    <div class="row g-3 mt-2">
+        <!-- <div class="col-md-8">
+            <div class="card p-3 dashboard-link" data-page="Analytics" data-url="Analytics.html"
+                style="cursor: pointer;">
+                <h6>Sales</h6>
+                <canvas id="salesChart"></canvas>
+            </div>
+        </div> -->
+
+        <div class="col-12 col-md-6 col-lg-4">
+
+            <!-- No orders message -->
+            <div id="noOrderMsg" class="card p-3 text-center text-muted">
+                No orders yet — your chart will appear after your first order 🙂
+            </div>
+
+            <!-- Order status chart -->
+            <div class="card p-3 dashboard-link order-status-card d-none" data-page="Orders" data-url="orders.html"
+                style="cursor: pointer;">
+                <h6>Order Status</h6>
+                <canvas id="orderChart"></canvas>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- LISTS -->
+
+    <!-- <div class="row g-3 mt-2">
+        <div class="col-md-6">
+
+            
+            <div class="card p-3 dashboard-link" data-page="Products" data-url="products.html" style="cursor: pointer;">
+                <h6>Top Selling Products</h6>
+
+                <div class="product-item">
+                    <div class="product-img"></div>
+                    <div class="product-details">
+                        <span class="product-name">Product Name</span>
+                        <span class="product-desc">Short Description</span>
+                    </div>
+                </div>
+
+                <div class="product-item">
+                    <div class="product-img"></div>
+                    <div class="product-details">
+                        <span class="product-name">Product Name</span>
+                        <span class="product-desc">Short Description</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        
+        <div class="col-md-6">
+            <div class="card p-3 dashboard-link" data-page="Products" data-url="products.html" style="cursor: pointer;">
+                <h6>Recently Added Products</h6>
+
+                <div class="product-item">
+                    <div class="product-img"></div>
+                    <div class="product-details">
+                        <span class="product-name">Product Name</span>
+                        <span class="product-desc">Short Description</span>
+                    </div>
+                </div>
+
+                <div class="product-item">
+                    <div class="product-img"></div>
+                    <div class="product-details">
+                        <span class="product-name">Product Name</span>
+                        <span class="product-desc">Short Description</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+</section>

@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500&display=swap');
+
+/* ================= ROOT VARIABLES ================= */
+:root {
+  /* ===== Fonts ===== */
+  --font-primary: 'Poppins', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+
+  /* ===== Base Colors ===== */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-muted: #6c757d;
+
+  /* ===== Green Theme ===== */
+  --color-green-dark: #2e7d32;
+  --color-green-main: #198754;
+  --color-green-light: #66bb6a;
+  --color-green-hover: #2f4d30;
+  --color-green-disabled: #9fcbb5;
+
+  /* ===== Borders & Inputs ===== */
+  --color-border: #ccc;
+  --color-border-light: #ced4da;
+
+  /* ===== Shadows ===== */
+  --shadow-card: 0 4px 20px rgba(0, 100, 0, 0.15);
+  --shadow-input: 0 0 5px rgba(102, 187, 106, 0.5);
+  --shadow-otp: 0 0 0 0.15rem rgba(25, 135, 84, 0.25);
+
+  /* ===== Radius ===== */
+  --radius-card: 20px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  /* ===== Sizes ===== */
+  --otp-size: 45px;
+  --otp-size-mobile: 40px;
+}
+
+/* ================= BASE ================= */
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-white);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+h1,
+h2,
+h3,
+header span,
+.product-name {
+  font-family: var(--font-heading);
+}
+
+/* ================= CARD ================= */
+.card {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  animation: fadeIn 0.8s ease;
+
+  
+  height: 650px;   /* 👈 THIS IS THE KEY */
+}
+
+.card .row {
+  height: 100%;
+}
+
+
+/* ================= ANIMATION ================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= IMAGE SECTION ================= */
+.card-img-left {
+ 
+  height: 100%;
+  min-height: 100%;
+
+  background-image: url("../Images/signup.png");
+  background-repeat: no-repeat;
+
+  /* center */
+  background-position: center center;
+
+  /* INCREASE HEIGHT */
+  background-size: auto 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ================= FORM ================= */
+.form-floating > label {
+  color: var(--color-green-dark);
+}
+
+.form-floating .form-control {
+  padding-left: 40px;
+}
+
+.form-control {
+  border: none;
+  border-bottom: 2px solid var(--color-border);
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  font-size: 1rem;
+  width: 100%;
+  transition: all 0.3s;
+}
+
+.form-control:focus {
+  border-bottom: 2px solid var(--color-green-light);
+  box-shadow: var(--shadow-input);
+}
+
+/* Remove Bootstrap focus shadow */
+.form-control:focus {
+  box-shadow: none ;
+}
+
+/* ================= BUTTON ================= */
+.btn-green {
+  background-color: var(--color-green-dark);
+  color: var(--color-white);
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-green:hover {
+  background-color: var(--color-green-hover);
+  color: var(--color-white);
+}
+
+/* ================= ICON ================= */
+.icon {
+  color: var(--color-green-dark);
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+}
+
+.form-floating input {
+  padding-left: 2.5rem;
+}
+
+/* ================= PASSWORD EYE ================= */
+.animate-eye {
+  transform: scale(1.2);
+  transition: transform 0.2s ease;
+}
+
+/* ================= VALIDATION ================= */
+.invalid-feedback {
+  font-size: 0.85em;
+}
+
+/* ================= TOAST ================= */
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 767px) {
+  .card-img-left {
+    display: none;
+  }
+}
+
+/* ================= SEND OTP BUTTON ================= */
+.send-otp-btn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-green-main);
+  color: var(--color-white);
+  cursor: pointer;
+  z-index: 5;
+}
+
+.send-otp-btn:disabled {
+  background-color: var(--color-green-disabled);
+  cursor: not-allowed;
+}
+
+.send-otp-btn:hover:not(:disabled) {
+  background-color: #146c43;
+}
+
+/* ================= OTP BOX ================= */
+.otp-box {
+  width: var(--otp-size);
+  height: var(--otp-size);
+  font-size: 24px;
+  text-align: center;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-light);
+}
+
+@media (max-width: 576px) {
+  .otp-box {
+    width: var(--otp-size-mobile);
+    height: var(--otp-size-mobile);
+    font-size: 22px;
+  }
+}
+
+.otp-box:focus {
+  outline: none;
+  border-color: var(--color-green-main);
+  box-shadow: var(--shadow-otp);
+}

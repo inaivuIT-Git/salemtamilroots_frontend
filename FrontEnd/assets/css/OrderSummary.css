@@ -1,0 +1,290 @@
+
+
+/* ================= ROOT VARIABLES ================= */
+:root {
+  
+
+  /* ===== Base Colors ===== */
+  --body-bg: #f8fff9;
+  --heading-color: #084422;
+  --text-light: #ffffff;
+
+  /* ===== Layout ===== */
+  --top-padding: 65px;
+  --sticky-top: 80px;
+
+  /* ===== Navbar ===== */
+  --nav-text-size: 1.25rem;
+
+  /* ===== Brand / Buttons ===== */
+  --payment-btn-color: #0f763cd1;
+  --btn-hover-dark: #1F2937;
+  --btn-hover-alt: #eaba36;
+
+  /* ===== Form Colors ===== */
+  --color-green-dark: #2e7d32;
+  --color-green-light: #66bb6a;
+  --color-border: #ccc;
+
+  /* ===== Backgrounds ===== */
+  --elite-bg: #F7F4EB;
+  --hover-bg-light: #f7f7f7;
+
+  /* ===== Shadows ===== */
+  --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --shadow-input: 0 0 5px rgba(102, 187, 106, 0.5);
+
+  /* ===== Radius ===== */
+  --radius-sm: 5px;
+
+  /* ===== Icon Position ===== */
+  --icon-left: 10px;
+  --icon-top: 38%;
+  --icon-top-descrip: 27%;
+}
+
+/* ================= RESET ================= */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+}
+
+/* ================= BASE ================= */
+body {
+  background-color: var(--body-bg);
+  font-family: var(--font-primary);
+  padding-top: var(--top-padding);
+}
+
+h1,
+h2,
+h3,h4,  
+header span,
+.product-name {
+  font-family: var(--font-heading);
+}
+
+.section-heading {
+  color: var(--heading-color);
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  background-color: #ffffff;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.navbar-brand img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ================= STICKY PAYMENT ================= */
+.sticky-left {
+  position: sticky;
+  top: var(--sticky-top);
+  align-self: flex-start;
+  height: fit-content;
+}
+
+/* ================= QUANTITY ================= */
+.qty {
+  border: 1px solid rgba(0, 0, 0, 0.162);
+  border-radius: var(--radius-sm);
+}
+
+.btn-qty {
+  border: none;
+  background: transparent;
+}
+
+.btn-qty:hover {
+  color: rgba(14, 158, 57, 0.66);
+}
+
+.btn-qty-neg:hover {
+  color: rgb(208, 9, 9);
+}
+
+/* ================= PRICE DETAILS ================= */
+.price-details .table-striped td:last-child {
+  text-align: end;
+  padding-right: 20px;
+}
+
+/* ================= PAYMENT BUTTON ================= */
+.payment-btn,
+.btn-green {
+  background-color: var(--payment-btn-color);
+  color: var(--text-light);
+}
+
+.payment-btn:hover,
+.btn-green:hover {
+  background-color: var(--btn-hover-alt);
+  color: #000;
+}
+
+/* ================= ADDRESS ================= */
+.address-item {
+  cursor: pointer;
+}
+
+.address-item:hover {
+  background: var(--hover-bg-light);
+}
+
+/* ================= ADDRESS FORM ================= */
+.form-floating > label {
+  color: var(--color-green-dark);
+}
+
+.form-floating .form-control {
+    padding-left: 40px;
+}
+
+.form-control,
+.form-select {
+  border: 2px solid var(--color-border);
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  font-size: 1rem;
+  width: 100%;
+  transition: all 0.3s;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border: 2px solid var(--color-green-light);
+  box-shadow: var(--shadow-input);
+}
+
+/* Prevent icon jump */
+.form-floating.position-relative {
+  min-height: 75px;
+}
+
+/* ================= ICON ================= */
+.icon {
+  color: var(--color-green-dark);
+  position: absolute;
+  top: var(--icon-top);
+  left: var(--icon-left);
+  transform: translateY(-50%);
+}
+
+.descrip .icon {
+  top: var(--icon-top-descrip);
+}
+
+.form-floating input {
+  padding-left: 2rem;
+}
+
+/* ================= VALIDATION ================= */
+.invalid-feedback {
+    font-size: 0.85em;
+}
+
+/* TOAST DESIGN  */
+/* Toast Notification Styles */
+#toastContainer {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+}
+
+.toast {
+  min-width: 360px;
+  background: #1f1f1f;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  animation: slideDown 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
+}
+
+.toast.success .icon {
+  background: #2ecc71;
+}
+
+.toast.error .icon {
+  background: #e74c3c;
+}
+
+.toast .icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.toast .message {
+  font-size: 14px;
+  line-height: 1.4;
+  padding-left: 22px;
+  
+}
+
+/* Animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+
+@media (max-width: 576px) {
+  html {
+      font-size: 14px;
+  }
+  .banner {
+      height: 200px;
+  }
+  .product-image-wrapper {
+    height: 150px;
+  }
+ }
+
+
+
+
+

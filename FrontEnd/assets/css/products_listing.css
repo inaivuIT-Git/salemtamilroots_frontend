@@ -1,0 +1,371 @@
+
+/* ================= FONT FACES ================= */
+@font-face {
+  font-family: "CormorantGaramond";
+  src: url("assets/fonts/CormorantGaramond-Italic-VariableFont_wght.ttf") format("truetype"),
+      
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins-Black.ttf") format("truetype"),
+       url("/fonts/Poppins-Black.woff2") format("woff2"),
+       url("/fonts/Poppins-Black.woff") format("woff");
+}
+
+.product-card *,
+#productContainer * {
+  box-sizing: border-box;
+}
+.listing-container {
+  max-width: 1140px;
+}
+
+
+/* ================= PRODUCT CARD ================= */
+.product-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 6px 18px var(--color-shadow);
+}
+
+/* Image */
+.product-image-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.product-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+.product-card .small {
+  color: var(--color-brown);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.product-card .price {
+  font-size: 1.05rem;
+}
+
+/* ================= BUTTONS ================= */
+.add-to-cart-btn,
+.go-to-cart-btn {
+  border: none;
+  background: var(--gradient-gold);
+  color : white
+  
+}
+
+
+
+/* ================= PAGINATION ================= */
+.pagination .page-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50% ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-dark);
+}
+
+.pagination .page-link:hover {
+  background: var(--color-green);
+  border-color: var(--color-green);
+  color: var(--color-light);
+}
+
+.pagination .page-item.active .page-link {
+  background: var(--gradient-green);
+  border-color: var(--color-green);
+  color: #0b253b;
+}
+
+/* ================= FILTER DROPDOWN ================= */
+.filter-btn {
+  border: none;
+  background: none;
+  padding: 8px 14px;
+  color: transparent;
+  box-shadow: none;
+  transition: all 0.3s ease;
+}
+
+.filter-btn i {
+  font-size: 1.3rem;
+  font-weight: 700;
+  background-clip: text;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.filter-btn:hover {
+  transform: translateY(-3px);
+}
+
+.filter-btn:focus,
+.filter-btn:active,
+.filter-btn.show {
+  outline: none;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Dropdown */
+#chooseSort .dropdown-toggle::after {
+  display: none;
+}
+
+#chooseSort .dropdown-menu {
+  border-radius: var(--radius-lg);
+  padding: 10px 0;
+  border: none;
+  min-width: 230px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 8px 24px var(--color-shadow);
+}
+
+#chooseSort .dropdown-item {
+  font-family: 'C';
+  padding: 10px 18px;
+  font-weight: bold;
+  color: #2f5d50;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-left: 3px solid transparent;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+}
+
+#chooseSort .dropdown-item:hover {
+  background: var(--gradient-gold);
+  color: var(--color-light);
+  transform: translateX(4px);
+  border-left-color: #fff5e1;
+}
+
+/* ================= HEADINGS ================= */
+h2 {
+  font-family: var(--font-heading);
+}
+
+h2.fw-bold {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  background: var(--gradient-gold);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+h2.fw-bold::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 60px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--gradient-gold);
+}
+
+/* ================= QUANTITY ================= */
+.action-area {
+  margin-top: 12px;
+}
+
+.cart-row,
+.qty-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+/* ================= AMAZON STYLE QUANTITY ================= */
+.qty-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qty-box {
+  display: inline-flex;
+  align-items: center;
+  /* border : 2px solid #2f5d5046; */
+  border-radius: 8px;
+  background: #fff;
+  height: 32px;
+  overflow: hidden;
+}
+
+/* Minus & Plus */
+.qty-box button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: #75d4b9;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f1111;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.qty-box button:hover {
+  background: #2F5D50;
+  color: #ffffff;
+}
+
+/* Quantity number */
+.qty-box span {
+  min-width: 36px;
+  height: 32px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f1111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+
+/* ================= TOAST ================= */
+#toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999999;
+}
+
+.toast {
+  background: #333;
+  color: var(--color-light);
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  margin-top: 8px;
+  font-size: 14px;
+  opacity: 0;
+  animation: fadeInOut 3s forwards;
+}
+
+.toast.success {
+  background: #28a745;
+}
+
+.toast.error {
+  background: var(--color-danger);
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  80% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+/* ================= WISHLIST ================= */
+.wishlist-item .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.wishlist-item .btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.wishlist-item .wishlist-icon {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.wishlist-item .wishlist-icon i {
+  color: red;
+  font-size: 22px;
+}
+
+.wishlist-item .wishlist-icon:hover i {
+  transform: scale(1.15);
+}
+
+/* ================= RIBBONS ================= */
+.ribbon {
+  position: absolute;
+  top: 10px;
+  left: -5px;
+  padding: 4px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-light);
+  border-radius: 4px;
+  transform: rotate(-10deg);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 2;
+  background: #28a745;
+}
+
+.ribbon-new {
+  background: var(--gradient-success);
+}
+
+.ribbon-offer {
+  background: var(--gradient-danger);
+}
+
+/* ================= NO RATING ================= */
+.no-rating-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #3A7D7C;
+}
+
+
+
+
+/* ================= DESKTOP CARD WIDTH REDUCTION ================= */
+@media (min-width: 992px) {
+   .products-wrapper {
+    max-width: 1150px;
+    margin: 0 auto;
+  }
+  .product-item {
+    display: flex;
+    justify-content: center;
+    padding-left: 8px;     
+    padding-right: 8px;
+    margin-bottom: 28px;
+  }
+
+  .product-card {
+    max-width: 240px;   
+    width: 100%;
+  }
+  
+}

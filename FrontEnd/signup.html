@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/signup.css">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <div class="card">
+                    <div class="row g-0">
+                        <!--Left herbal image section-->
+                        <div class="col-md-5 card-img-left d-none d-md-block"></div>
+
+                        <!--Right sign-up form-->
+                        <div class="col-md-7 p-4">
+                            <div class="text-center mb-3">
+                                <h3 class="text-success fw-bold">
+                                    Join Salem Tamil Roots
+                                </h3>
+                                <p class="fs-5">Create your Account</p>
+
+                                <form class="needs-validation" novalidate>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <div class="form-floating position-relative">
+                                                <i class="fa-solid fa-user icon"></i>
+                                                <input type="text" id="firstname" class="form-control"
+                                                    placeholder="First Name" required pattern="^[A-Za-z ]+$">
+                                                <label for="firstname" class="ms-4">First Name <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="invalid-feedback">Please enter your first name.</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+                                            <div class="form-floating position-relative">
+                                                <i class="fa-solid fa-user icon"></i>
+                                                <input type="text" id="lastname" class="form-control"
+                                                    placeholder="Last Name" pattern="^[A-Za-z ]+$">
+                                                <label for="lastname" class="ms-4">Last Name</label>
+                                                <div class="invalid-feedback">Please enter your last name.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-floating mb-3 position-relative">
+                                        <i class="bi bi-telephone-plus-fill icon"></i>
+                                        <input type="text" id="phone" class="form-control" placeholder="Phone Number"
+                                            required pattern="^[0-9]{10}$">
+                                        <label for="phone" class="ms-4">Phone Number <span
+                                                class="text-danger">*</span></label>
+                                        <div class="invalid-feedback">Please Enter your Phone Number</div>
+                                    </div>
+                                    <div class="form-floating mb-3 position-relative">
+                                        <i class="fa-solid fa-envelope icon"></i>
+
+                                        <input type="email" id="email" class="form-control pe-5" placeholder="Email"
+                                            required pattern="^[^ ]+@[^ ]+\.[a-z]{2,}$" />
+                                        <i id="emailVerifiedIcon"
+                                            class="bi bi-check-circle-fill text-success position-absolute end-0 top-50 translate-middle-y me-5 d-none">
+                                        </i>
+
+                                        <label for="email" class="ms-4">
+                                            Your Email <span class="text-danger">*</span>
+                                        </label>
+
+                                        <!-- Send OTP Button -->
+                                        <button type="button" id="sendOtpBtn" class="send-otp-btn d-active" disabled>
+                                            Send OTP
+                                        </button>
+
+                                        <div class="invalid-feedback">
+                                            Please enter a valid email address.
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-floating mb-3 position-relative">
+                                        <i class="fa-solid fa-lock icon"></i>
+                                        <input type="password" id="password" class="form-control" placeholder=""
+                                            required
+                                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,}$">
+                                        <label for="password" class="ms-4">New Password <span
+                                                class="text-danger">*</span></label>
+                                        <i class="bi bi-eye-slash position-absolute end-0 top-50 translate-middle-y me-4"
+                                            id="togglePassword" style="cursor: pointer;"></i>
+                                        <div class="invalid-feedback">Password must be at least 8 characters</div>
+                                    </div>
+
+                                    <div class="form-floating mb-4 position-relative">
+                                        <i class="bi bi-shield-lock-fill icon"></i>
+                                        <input type="password" id="confirmPassword" class="form-control" placeholder=""
+                                            required>
+                                        <label for="confirmPassword" class="ms-4">Confirm Password <span
+                                                class="text-danger">*</span></label>
+
+                                        <div class="invalid-feedback">Passwords do not match</div>
+                                    </div>
+
+                                    <button type="submit" id="signupBtn" class="btn btn-green w-100 py-2 mb-2">
+                                        <span class="spinner-border spinner-border-sm me-2 d-none"
+                                            id="loadingSpinner"></span>Sign Up</button>
+                                </form>
+                                <a href="SellerSignUp.html"
+                                    class="text-success text-decoration-none fw-semibold">Join as a Seller</a>
+                                <p class="mt-1">Already have an account?
+                                    <a href="signin.html"
+                                        class="text-success text-decoration-none fw-semibold">Sign In</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Toast Notification-->
+                        <div class="toast-container position-fixed end-0 p-3">
+                            <div id="signupToast" class="toast align-items-center text-white bg-success border-0"
+                                role="alert">
+                                <div class="d-flex">
+                                    <div class="toast-body">
+                                        <i class="bi bi-check-circle-fill me-2"></i> Sign up successful! Welcome to
+                                        Salem Tamil Roots 🌱
+                                    </div>
+                                    <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                        data-bs-dismiss="toast">
+                                    </button>
+
+                                </div>
+                            </div>
+                            <div id="errorToast" class="toast align-items-center text-white bg-danger" role="alert"
+                                aria-live="assertive" aria-atomic="true">
+                                <div class="d-flex">
+                                    <div class="toast-body" id="errorToastMsg">
+                                        Error occurred!
+                                    </div>
+                                    <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                        data-bs-dismiss="toast"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OTP MODEL -->
+    <div class="modal fade" id="otpModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Verify OTP</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body text-center">
+                    <p class="small text-muted">
+                        Enter the 4-digit OTP sent to your email
+                    </p>
+
+                    <!-- OTP Inputs -->
+                    <div class="d-flex justify-content-center gap-2 mb-3">
+                        <input class="otp-box" type="password" maxlength="1" inputmode="numeric"
+                            autocomplete="one-time-code">
+                        <input class="otp-box" type="password" maxlength="1" inputmode="numeric">
+                        <input class="otp-box" type="password" maxlength="1" inputmode="numeric">
+                        <input class="otp-box" type="password" maxlength="1" inputmode="numeric">
+                    </div>
+
+                    <small class="text-danger d-none" id="otpError">
+                        Please enter all 4 digits
+                    </small>
+                </div>
+
+                <div class="modal-footer justify-content-center">
+                    <button class="btn btn-success px-4" id="verifyOtpBtn" disabled>
+                        Verify OTP
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="assets/js/config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/signup.js"></script>
+</body>
+
+</html>

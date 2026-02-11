@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Signup</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/SellerSignUp.css">
+
+    <!--  -->
+</head>
+
+<body>
+    <div class="navbar d-flex justify-content-between align-items-center px-2 fixed-top">
+
+        <!-- Logo + Brand -->
+        <a class="navbar-brand fs-4 d-flex align-items-center gap-2 product-name" href="#">
+            <img src="assets/Images/Index/logo/logo4.png" alt="Salem Tamil Roots Logo" style="height: 40px;"
+                class="img-fluid" />
+            <span>Salem Tamil Roots</span>
+        </a>
+
+        <!-- Cancel Button -->
+        <a href="index.html" class="btn btn-outline-secondary"> Cancel
+        </a>
+
+    </div>
+
+    <div class="container mt-3 mb-5">
+        <div class="text-center">
+            <h3 class="text-success fw-bold">
+                Join Salem Tamil Roots
+            </h3>
+            <p class="fs-5">Create your Account</p>
+        </div>
+        <form class="needs-validation" novalidate>
+
+            <!-- Account Details -->
+            <div class="mb-4">
+                <h4 class="mb-4">Account Details</h4>
+                <div class="row">
+                    <!-- First Name -->
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating position-relative">
+                            <i class="bi bi-person-fill icon"></i>
+                            <input type="text" id="firstname" class="form-control" placeholder="First Name" required
+                                pattern="^[A-Za-z ]+$">
+                            <label for="firstname" class="ms-5">First Name <span class="text-danger">*</span></label>
+                            <div class="invalid-feedback">Please enter your first name.</div>
+                        </div>
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating position-relative">
+                            <i class="bi bi-person-fill icon"></i>
+                            <input type="text" id="lastname" class="form-control" placeholder="Last Name"
+                                pattern="^[A-Za-z ]+$">
+                            <label for="lastname" class="ms-5">Last Name</label>
+                            <div class="invalid-feedback">Please enter a valid last name.</div>
+                        </div>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating position-relative">
+                            <i class="bi bi-telephone-plus-fill icon"></i>
+                            <input type="text" id="phone" class="form-control" placeholder="Phone Number" required
+                                pattern="^[0-9]{10}$">
+                            <label for="phone" class="ms-5">Phone Number <span class="text-danger">*</span></label>
+                            <div class="invalid-feedback">Please enter a valid 10-digit phone number.</div>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating position-relative">
+                            <i class="bi bi-envelope-fill icon"></i>
+                            <input type="email" id="email" class="form-control" placeholder="Email"
+                                pattern="^[^ ]+@[^ ]+\.[a-z]{2,3}$">
+                            <label for="email" class="ms-5">Your Email </label>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+                    </div>
+
+                    <!-- New Password -->
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating position-relative">
+                            <i class="bi bi-lock-fill icon"></i>
+                            <input type="password" id="password" class="form-control" placeholder="New Password"
+                                required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[!@#$%^&*]).{8,}$">
+                            <label for="password" class="ms-5">New Password <span class="text-danger">*</span></label>
+
+                            <!-- Eye Icon -->
+                            <i class="bi bi-eye-slash position-absolute end-0 top-50 translate-middle-y me-4"
+                                id="togglePassword" style="cursor: pointer;"></i>
+
+                            <div class="invalid-feedback">
+                                Password must be at least 8 characters with uppercase, lowercase, number, and symbol.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating position-relative">
+                            <i class="bi bi-shield-lock-fill icon"></i>
+                            <input type="password" id="confirmPassword" class="form-control" placeholder="" required>
+                            <label for="confirmPassword" class="ms-5">Confirm Password <span
+                                    class="text-danger">*</span></label>
+                            <div class="invalid-feedback">Passwords do not match.</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- BUSINESS DETAILS -->
+            <div class="mb-4">
+                <h4 class="mb-4">Business Details</h4>
+                <div class="row">
+
+                    <!-- Business Name -->
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating position-relative">
+                            <i class="fa-solid fa-briefcase icon"></i>
+                            <input type="text" id="businessName" class="form-control" placeholder="Business Name"
+                                required pattern="^[A-Za-z0-9 &\-',.()]+$">
+                            <label for="businessName" class="ms-5">Business Name <span
+                                    class="text-danger">*</span></label>
+                            <div class="invalid-feedback">Please enter your business name.</div>
+                        </div>
+                    </div>
+
+                    <!-- Business Type -->
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating position-relative">
+                            <select id="businessType" class="form-select" aria-label="Business Type" >
+                                <option value="">---- Select Business Type ----</option>
+                                <option value="proprietorship">Proprietorship</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="llp">LLP</option>
+                                <option value="pvt_ltd">Private Limited</option>
+                                <option value="public_ltd">Public Limited</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <label for="businessType" class="text-success">Legal Entity</label>
+                            <div class="invalid-feedback">Please select a business type.</div>
+                        </div>
+                    </div>
+
+                    <!-- GST Number -->
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating position-relative">
+                            <i class="fa-solid fa-receipt icon"></i>
+                            <input type="text" id="gstNumber" class="form-control" placeholder="GST Number"
+                                pattern="^[0-9A-Za-z]{15}$" maxlength="15" minlength="15"
+                                style="text-transform:uppercase;" >
+                            <label for="gstNumber" class="ms-5">GST Number </label>
+                            <div class="invalid-feedback">Enter a valid 15-character GSTIN (uppercase, alphanumeric).
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Business Description -->
+                    <div class="col-12 mb-3 descrip">
+                        <div class="form-floating position-relative">
+                            <i class="fa-solid fa-file-lines icon"></i>
+                            <textarea id="businessDescription" class="form-control" placeholder="Business Description"
+                                style="height:100px" required></textarea>
+                            <label for="businessDescription" class="ms-5">Business Description <span
+                                    class="text-danger">*</span></label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- Address Details -->
+            <div class="mb-4">
+                <h4 class="mb-4">Address Details</h4>
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating position-relative">
+                            <i class="bi bi-geo-alt-fill icon"></i>
+                            <input type="text" id="address1" class="form-control" placeholder="Address Line 1" required>
+                            <label for="address1" class="ms-5">Address Line 1 <span class="text-danger">*</span></label>
+                            <div class="invalid-feedback">Please enter address line 1.</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating position-relative">
+                            <i class="bi bi-geo-fill icon"></i>
+                            <input type="text" id="address2" class="form-control" placeholder="Address Line 2">
+                            <label for="address2" class="ms-5">Address Line 2</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="form-floating position-relative">
+                            <i class="bi bi-building-fill icon"></i>
+                            <input type="text" id="city" class="form-control" placeholder="City">
+                            <label for="city" class="ms-5">City</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="form-floating position-relative">
+                            <i class="bi bi-map-fill icon"></i>
+                            <input type="text" id="district" class="form-control" placeholder="District" required>
+                            <label for="district" class="ms-5">District <span class="text-danger">*</span></label>
+                            <div class="invalid-feedback">Please enter a district.</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="form-floating position-relative">
+                            <i class="bi bi-flag-fill icon"></i>
+                            <input type="text" id="state" class="form-control" placeholder="State" required>
+                            <label for="state" class="ms-5">State <span class="text-danger">*</span></label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="form-floating position-relative">
+                            <i class="bi bi-mailbox2 icon"></i>
+                            <input type="text" id="postalcode" class="form-control" placeholder="Postal Code"
+                                pattern="^[0-9]{6}$" required>
+                            <label for="postalcode" class="ms-5">Postal Code <span class="text-danger">*</span></label>
+                            <div class="invalid-feedback">Enter a valid postal code.</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="form-floating position-relative">
+                            <i class="bi bi-globe-central-south-asia icon"></i>
+                            <input type="text" id="country" class="form-control" placeholder="Country" required>
+                            <label for="country" class="ms-5">Country <span class="text-danger">*</span></label>
+                            <div class="invalid-feedback">Enter a valid Country Name.</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Contact Person Details -->
+            <div class="mb-4">
+                <h4 class="mb-4">Contact Person Details</h4>
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating position-relative">
+                            <i class="fa-solid fa-user-tie icon"></i>
+                            <input type="text" id="contactPerson" class="form-control" placeholder="Contact Person Name"
+                                required pattern="^[A-Za-z ]+$">
+                            <label for="contactPerson" class="ms-5">Contact Person Name <span
+                                    class="text-danger">*</span></label>
+                            <div class="invalid-feedback">Enter a Valid name.</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating position-relative">
+                            <i class="bi bi-telephone-plus-fill icon"></i>
+                            <input type="text" id="contactMobile" class="form-control" placeholder="Contact Mobile"
+                                pattern="^[0-9]{10}$" required>
+                            <label for="contactMobile" class="ms-5">Contact Mobile <span
+                                    class="text-danger">*</span></label>
+                            <div class="invalid-feedback">Enter a valid 10-digit mobile number.</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating position-relative">
+                            <i class="fa-solid fa-envelope-circle-check icon"></i>
+                            <input type="email" id="contactEmail" class="form-control" placeholder="Contact Email"
+                                pattern="^[^ ]+@[^ ]+\.[a-z]{2,3}$" required>
+                            <label for="contactEmail" class="ms-5">Contact Email <span
+                                    class="text-danger">*</span></label>
+                            <div class="invalid-feedback">Enter a valid email address.</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="text-center">
+                <button type="submit" id="signupBtn" class="btn btn-green w-25 py-2">
+                    <span class="spinner-border spinner-border-sm me-2 d-none" id="loadingSpinner"></span>Sign
+                    Up</button>
+            </div>
+
+        </form>
+
+        <p class="mt-3 text-center">Already have an account?
+            <a href="signin.html" class="text-success text-decoration-none fw-semibold">Sign In</a>
+        </p>
+        <!-- Toast -->
+        <div class="toast-container position-fixed end-0 p-3">
+            <div id="signupToast" class="toast align-items-center text-white bg-success border-0" role="alert">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        <i class="bi bi-check-circle-fill me-2"></i> Sign up successful! Welcome to
+                        Salem Tamil Roots 🌱
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast">
+                    </button>
+
+                </div>
+            </div>
+            <div id="errorToast" class="toast align-items-center text-white bg-danger" role="alert"
+                aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body" id="errorToastMsg">
+                        Error occurred!
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                        data-bs-dismiss="toast"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODEL FOR SUCCESSFUL REGISTRATION -->
+    <div class="modal fade" id="sellerSuccessModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-success">Registration Successful</h5>
+                </div>
+                <div class="modal-body text-center">
+                    <p>
+                        Thank you for registering.<br>
+                        We will review your details and notify you shortly.
+                    </p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-success" id="okBtn">
+                        OK
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/SellerSignUp.js"></script>
+</body>
+
+</html>
