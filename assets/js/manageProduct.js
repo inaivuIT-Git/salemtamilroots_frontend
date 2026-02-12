@@ -769,7 +769,7 @@ document.addEventListener("click", async (e) => {
 
   try {
     const response = await fetch(
-      `https://localhost:44366/api/products/images/${productId}`,
+      `${API_BASE_URL}/api/products/images/${productId}`,
       {
         method: "POST",
         headers: {

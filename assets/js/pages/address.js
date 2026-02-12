@@ -5,7 +5,7 @@ const BASE_URL = `${API_BASE_URL}/api`;
 // --- STATE MANAGEMENT ---
 let addresses = [];
 let userId = sessionStorage.getItem("userId");
-const touchedFields = new Set(); 
+ 
 
 
 
@@ -71,7 +71,8 @@ function renderAddresses() {
         `).join('');
 }
 
-let addrPincode, addrCity, addrState, errPincode, addrName, addrPhone, addrFull;
+let addrPincode, addrCity, addrState, errPincode, addrName, addrPhone, addrFull; 
+const touchedFields = new Set();
 
 document.addEventListener('DOMContentLoaded', () => {
     addrPincode = document.getElementById('addrPincode');
@@ -99,43 +100,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     } 
 
-    document.querySelectorAll('#addressForm input, #addressForm textarea').forEach(el => { 
-        el.addEventListener('input', () => { 
-            el.classList.remove('is-invalid'); 
-
-            const err = document.getElementById('err' + el.id.replace('addr', '')); 
-            if (err) err.textContent = '';
-        })
-    }) 
-
     document.querySelectorAll('#addressForm input, #addressForm textarea, #addressForm select').forEach(el => { 
-        el.addEventListener('input', checkAddressFormValidity); 
-        el.addEventListener('change', checkAddressFormValidity);
+        el.addEventListener('blur', () => { 
+            touchedFields.add(el.id); 
+            checkAddressFormValidity();
+        });
+        
+        
+        el.addEventListener('input', () => {  
+            if (touchedFields.has(el.id)) { 
+                checkAddressFormValidity();
+            }
+        });
     })
 }); 
-
-// function validateField(input, errorEl) { 
-//     if (!input.checkValidity()) { 
-//         errorEl.textContent = input.title; 
-//         input.classList.add('is-invalid'); 
-//         return false;
-//     } 
-//     errorEl.textContent = ''; 
-//     input.classList.remove('is-invalid'); 
-//     return true;
-// }
- 
-// function validateAddressForm() { 
-//     let valid = true; 
-
-//     valid = validateField(addrName, document.getElementById('errName')) && valid;
-//     valid = validateField(addrPhone, document.getElementById('errPhone')) && valid; 
-//     valid = validateField(addrPincode, document.getElementById('errPincode')) && valid; 
-//     valid = validateField(addrFull, document.getElementById('errFull')) && valid; 
-//     valid = validateField(addrState, document.getElementById('errState')) && valid;
-
-//     return valid;
-// }
 async function fetchCityStateByPincode(pincode) {
     try {
         errPincode.textContent = ''; 
@@ -209,50 +187,6 @@ function checkAddressFormValidity() {
     saveBtn.disabled = !form.checkValidity() || !addrCity.value || !addrState.value;
 }
 
-    const form = document.getElementById('addressForm');
-    const saveBtn = document.getElementById('saveAddressBtn');
-
-    if (!form || !saveBtn) return;
-
-    let firstInvalid = null;
-
-    // Reset old errors
-    form.querySelectorAll('.is-invalid').forEach(el => {
-        el.classList.remove('is-invalid');
-    });
-
-    // Check all real form fields
-    form.querySelectorAll('input, textarea, select').forEach(field => {
-        if (!field.checkValidity() && !firstInvalid) {
-            firstInvalid = field;
-        }
-    });
-
-    // Extra checks for autofill fields
-    if (!addrCity.value.trim() && !firstInvalid) {
-        firstInvalid = addrCity;
-    }
-
-    if (!addrState.value.trim() && !firstInvalid) {
-        firstInvalid = addrState;
-    }
-
-    if (firstInvalid) {
-        firstInvalid.classList.add('is-invalid');
-
-        const err = document.getElementById(
-            'err' + firstInvalid.id.replace('addr', '')
-        );
-        if (err) err.textContent = firstInvalid.title || 'This field is required';
-
-        saveBtn.disabled = true;
-        return;
-    }
-
-    saveBtn.disabled = false;
-}
-
-
 function showAddressForm(id = null) {
     // Toggle UI
     document.getElementById('address-list').classList.add('d-none');
@@ -322,6 +256,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener('submit', async (e) => {
     e.preventDefault();   
+    
+    // Mark all fields as touched when clicking SAVE
+    form.querySelectorAll('input, textarea , select') .forEach (f => touchedFields.add(f.id)); 
+    checkAddressFormValidity(); 
+
+    if(!form.checkValidity() || !addrCity.value || !addrState.value) {
+        return; }
 
     const id = document.getElementById('addrId').value;
     const payload = mapUIToApiPayload(id);

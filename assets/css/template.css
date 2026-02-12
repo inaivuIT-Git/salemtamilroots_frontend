@@ -1,4 +1,3 @@
- /* @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Nunito:wght@400;500&display=swap'); */ 
 
 * {
   /* outline: 1px solid red; */
@@ -8,17 +7,17 @@
 }
 @font-face {
   font-family: "DancingScript";
-  src: url("/FrontEnd/assets/fonts/DancingScript-VariableFont_wght.ttf") format("truetype"),
+  src: url('../fonts/DancingScript-VariableFont_wght.ttf') format("truetype"),
        
 }
 @font-face {
   font-family: "Quicksand";
-  src: url("/FrontEnd/assets/fonts/Quicksand-VariableFont_wght.ttf") format("truetype"),
+  src: url('../fonts/Quicksand-VariableFont_wght.ttf') format("truetype"),
        
 }
 @font-face {
   font-family: "CormorantGaramond";
-  src: url("/FrontEnd/assets/fonts/CormorantGaramond-Italic-VariableFont_wght.ttf") format("truetype"),
+  src: url('../fonts/CormorantGaramond-Italic-VariableFont_wght.ttf') format("truetype"),
        
 }
 

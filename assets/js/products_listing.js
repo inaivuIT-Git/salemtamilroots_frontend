@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     async function fetchSearchProducts(keyword) {
     try {
         const response = await callApi(
-            `https://localhost:44366/api/Search/customer?q=${encodeURIComponent(keyword)}`,
+            `${API_BASE_URL}}/api/Search/customer?q=${encodeURIComponent(keyword)}`,
             {},
             "GET"
         );
@@ -151,7 +151,7 @@ function renderRating(product) {
 }
 async function fetchSearchProducts(keyword) {
         try { 
-            const response = await callApi(`https://localhost:44366/api/Search/customer?q=${encodeURIComponent(keyword)}`, {}, "GET"); 
+            const response = await callApi(`${API_BASE_URL}/api/Search/customer?q=${encodeURIComponent(keyword)}`, {}, "GET"); 
            // const result = await response.json(); 
             const Products = response.data?.data || [];  
 

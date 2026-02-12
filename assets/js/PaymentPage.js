@@ -70,7 +70,7 @@ function RedirectToCashfree(paymentSessionId) {
     let checkoutOptions = {
         paymentSessionId: paymentSessionId,
         redirectTarget: "_self",
-        returnUrl: `${window.location.origin}/FrontEnd/PaymentStatus.html`,
+        returnUrl: `${window.location.origin}/PaymentStatus.html`,
     }
     
 

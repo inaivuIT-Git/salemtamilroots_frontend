@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://localhost:44366";
+const API_BASE_URL = "https://salemtamilroots.in";
 Object.freeze(API_BASE_URL);
 window.API_BASE_URL = API_BASE_URL;
 window.APP_CONFIG = {

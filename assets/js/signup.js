@@ -1,4 +1,3 @@
-// import { API_BASE_URL } from "/FrontEnd/assets/js/config.js"; 
 document.addEventListener("DOMContentLoaded", () => {
 
     /* ===============================

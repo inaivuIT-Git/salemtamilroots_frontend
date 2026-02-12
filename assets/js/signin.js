@@ -2,10 +2,10 @@ const bgImage = document.querySelector(".image-section");
 
 if (bgImage) {
   bgImage.style.backgroundImage =
-    "url('/FrontEnd/assets/Images/signin.png')";
+    "url('assets/Images/signin.png')";
 }
 
-import { showToast } from "/FrontEnd/assets/js/toast.js";
+import { showToast } from "./toast.js";
 
 
 const params = new URLSearchParams(window.location.search);

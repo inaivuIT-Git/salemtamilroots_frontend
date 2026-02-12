@@ -160,11 +160,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     function showEmptyWishlist() {
     wishlistContainer.innerHTML = `
         <div class="text-center ">
-            <img src="/FrontEnd/assets/Images/wishlist-empty.png" alt="Empty Wishlist" style="max-width:380px;"/>
+            <img src="assets/Images/wishlist-empty.png" alt="Empty Wishlist" style="max-width:380px;"/>
 
             <h3>Your wishlist is empty </h3>
             <p class="mb-4 text-muted">Add your favorite items to your wishlist !</p>
-            <a href="/FrontEnd/index.html" class="btn btn-success mt-2">Continue shopping</a> 
+            <a href="index.html" class="btn btn-success mt-2">Continue shopping</a> 
 
         </div>
     `;
@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         try {
             const response = await fetch(
-                "https://localhost:44366/api/cart/add",
+                `${API_BASE_URL}/api/cart/add`,
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     /* ================= GO TO CART ================= */
     document.addEventListener("click", e => {
         if (!e.target.classList.contains("go-to-cart-btn")) return;
-        window.location.href = "/FrontEnd/viewcart.html";
+        window.location.href = "viewcart.html";
     });
 
     /* ================= STOCK ================= */

@@ -1,7 +1,7 @@
 const api_base =   `${API_BASE_URL}/api/Product`;
 // import { API_BASE_URL } from "./config.js";
 let allProducts =[];
-const NO_IMAGE_PATH = "/FrontEnd/assets/Images/NoProductImage.png";
+const NO_IMAGE_PATH = "assets/Images/NoProductImage.png";
 
 /* ======================== SEARCH QUERY FROM URL  =============== */
 

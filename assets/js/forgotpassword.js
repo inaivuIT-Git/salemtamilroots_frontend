@@ -16,8 +16,8 @@ const bgImage = document.getElementById("bgImage");
    IMAGE PATHS
 =========================== */
 
-const OTP_IMG = "/FrontEnd/assets/Images/send-otp.png";
-const RESET_IMG = "/FrontEnd/assets/Images/change-password.png";
+const OTP_IMG = "assets/Images/send-otp.png";
+const RESET_IMG = "assets/Images/change-password.png";
 
 /* ===========================
    DEFAULT IMAGE

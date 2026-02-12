@@ -93,7 +93,7 @@ window.addEventListener("popstate", () => {
 
 window.API_BASE = window.API_BASE_URL;
 console.log("Resolved API_BASE:", window.API_BASE);
-const NO_IMAGE_PATH = "/FrontEnd/assets/Images/NoProductImage.png";
+const NO_IMAGE_PATH = "assets/Images/NoProductImage.png";
 
 
 /**

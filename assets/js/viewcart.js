@@ -32,10 +32,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (cart.length === 0) {
                 cartItemsEl.innerHTML = `
                 <div class="text-center mt-3">
-                   <img src="/FrontEnd/assets/Images/card-empty.png" alt="Empty Cart" style="max-width:280px;"/>
+                   <img src="assets/Images/card-empty.png" alt="Empty Cart" style="max-width:280px;"/>
                    <h3>Your Cart is empty 🌿</h3>
                    <p class="mb-4 text-muted">Add items to start shopping.</p>
-                   <a href="/FrontEnd/index.html" class="btn btn-success mt-2">Continue shopping</a> 
+                   <a href="index.html" class="btn btn-success mt-2">Continue shopping</a> 
                 </div>`;
 
                 // Hide cart summary 

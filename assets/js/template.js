@@ -1,5 +1,5 @@
 // ================= IMAGE CONFIG =================
-const API_BASE = "https://localhost:44366";
+const API_BASE = "https://salemtamilroots.in";
 const noImage = "assets/Images/NoProductImage.png";
 
 /**
